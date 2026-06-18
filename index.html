@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sur-Ron LBX Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">⚡</span>
+      <div>
+        <h1>Sur-Ron <span>LBX</span> Builder</h1>
+        <p class="tagline">Customize your Light Bee X — pick parts, see them on the bike, get a price.</p>
+      </div>
+    </div>
+    <div class="price-pill" id="pricePill" title="Estimated total build cost">
+      <span class="price-label">Build total</span>
+      <span class="price-value" id="totalPrice">$0</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- ===================== BIKE STAGE ===================== -->
+    <section class="stage" aria-label="Bike preview">
+      <div class="stage-inner">
+        <svg id="bike" viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sur-Ron LBX model">
+          <defs>
+            <radialGradient id="floorGrad" cx="50%" cy="35%" r="75%">
+              <stop offset="0%" stop-color="#1b2030" />
+              <stop offset="100%" stop-color="#0a0c12" />
+            </radialGradient>
+            <radialGradient id="tireShade" cx="38%" cy="35%" r="70%">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.10" />
+              <stop offset="60%" stop-color="#ffffff" stop-opacity="0" />
+            </radialGradient>
+            <linearGradient id="metalShine" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22" />
+              <stop offset="45%" stop-color="#ffffff" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+
+          <!-- backdrop + ground -->
+          <rect x="0" y="0" width="960" height="540" fill="url(#floorGrad)" />
+          <ellipse cx="500" cy="470" rx="360" ry="34" fill="#000" opacity="0.45" />
+
+          <!-- ===== REAR WHEEL ===== -->
+          <g class="wheel">
+            <circle id="tire-rear" cx="270" cy="388" r="118" fill="#15171c" />
+            <circle cx="270" cy="388" r="110" fill="none" stroke="#000" stroke-width="16" stroke-dasharray="9 13" opacity="0.55" />
+            <circle id="rim-rear" cx="270" cy="388" r="86" fill="#2a2e38" />
+            <circle cx="270" cy="388" r="64" fill="#0b0d12" />
+            <g stroke="#586074" stroke-width="5">
+              <line x1="270" y1="324" x2="270" y2="452" />
+              <line x1="206" y1="388" x2="334" y2="388" />
+              <line x1="225" y1="343" x2="315" y2="433" />
+              <line x1="315" y1="343" x2="225" y2="433" />
+            </g>
+            <circle id="sprocket" cx="270" cy="388" r="30" fill="#3a3f49" />
+            <circle cx="270" cy="388" r="30" fill="none" stroke="#0b0d12" stroke-width="6" stroke-dasharray="4 5" />
+            <circle cx="270" cy="388" r="15" fill="#1c1f26" />
+            <circle cx="270" cy="388" r="118" fill="url(#tireShade)" />
+          </g>
+
+          <!-- ===== FRONT WHEEL ===== -->
+          <g class="wheel">
+            <circle id="tire-front" cx="730" cy="388" r="118" fill="#15171c" />
+            <circle cx="730" cy="388" r="110" fill="none" stroke="#000" stroke-width="16" stroke-dasharray="9 13" opacity="0.55" />
+            <circle id="rim-front" cx="730" cy="388" r="86" fill="#2a2e38" />
+            <circle cx="730" cy="388" r="64" fill="#0b0d12" />
+            <g stroke="#586074" stroke-width="5">
+              <line x1="730" y1="324" x2="730" y2="452" />
+              <line x1="666" y1="388" x2="794" y2="388" />
+              <line x1="685" y1="343" x2="775" y2="433" />
+              <line x1="775" y1="343" x2="685" y2="433" />
+            </g>
+            <circle cx="730" cy="388" r="15" fill="#1c1f26" />
+            <circle cx="730" cy="388" r="118" fill="url(#tireShade)" />
+          </g>
+
+          <!-- ===== DRIVETRAIN ===== -->
+          <line x1="432" y1="338" x2="276" y2="374" stroke="#0b0d12" stroke-width="4" />
+          <line x1="432" y1="366" x2="276" y2="402" stroke="#0b0d12" stroke-width="4" />
+          <polygon id="swingarm" points="420,344 434,336 282,376 272,392" fill="#23262e" />
+
+          <!-- ===== FRAME ===== -->
+          <!-- front down tube / beam from head tube to battery box -->
+          <polygon id="frame-tube" points="664,182 690,196 580,318 552,300" fill="#23262e" />
+          <!-- battery / main frame slab -->
+          <path id="frame-box" d="M380,205 L560,222 L578,320 Q580,340 560,342 L372,346 Q352,346 352,326 L356,248 Q358,208 380,205 Z" fill="#23262e" />
+          <!-- side number plate / body panel -->
+          <path id="panel" d="M398,250 L476,242 L486,322 L404,326 Z" fill="#1b1e24" opacity="0.95" />
+          <rect x="408" y="262" width="60" height="40" rx="6" fill="#0d0f14" opacity="0.35" />
+          <!-- subtle top highlight on the box (purely cosmetic, lets base colour show through) -->
+          <path d="M380,205 L560,222 L556,236 L378,219 Z" fill="url(#metalShine)" />
+
+          <!-- ===== MOTOR ===== -->
+          <circle id="motor" cx="432" cy="352" r="34" fill="#2c303a" />
+          <circle cx="432" cy="352" r="34" fill="none" stroke="#0b0d12" stroke-width="3" />
+          <circle cx="432" cy="352" r="14" fill="#14171d" />
+          <circle cx="432" cy="352" r="34" fill="url(#metalShine)" />
+
+          <!-- ===== FOOT PEG ===== -->
+          <rect id="peg" x="392" y="392" width="30" height="11" rx="3" fill="#3a3f49" />
+
+          <!-- ===== CONTROLLER ===== -->
+          <rect id="controller" x="452" y="206" width="74" height="30" rx="6" fill="#23262e" />
+          <rect x="452" y="206" width="74" height="30" rx="6" fill="url(#metalShine)" />
+
+          <!-- ===== FENDERS ===== -->
+          <path id="fender-rear" d="M168,330 Q214,248 326,272 L332,294 Q232,276 194,346 Z" fill="#1b1e24" />
+          <path id="fender-front" d="M672,300 Q706,276 754,300 L750,320 Q712,300 688,320 Z" fill="#1b1e24" />
+
+          <!-- ===== FORK ===== -->
+          <polygon id="fork-l" points="716,388 726,386 690,208 678,210" fill="#3a3f49" />
+          <polygon id="fork-r" points="704,388 716,385 676,206 662,210" fill="#3a3f49" />
+          <circle cx="671" cy="208" r="10" fill="#14171d" /> <!-- triple clamp -->
+
+          <!-- ===== SEAT ===== -->
+          <path id="seat" d="M352,198 L352,186 Q352,172 370,170 L520,160 Q540,159 542,176 L544,190 Q544,200 530,200 Z" fill="#15171c" />
+
+          <!-- ===== HANDLEBAR + GRIPS ===== -->
+          <path id="handlebar" d="M666,206 L650,166 Q646,150 630,150 L566,150" fill="none" stroke="#2a2e38" stroke-width="9" stroke-linecap="round" />
+          <rect id="grip-l" x="556" y="142" width="34" height="15" rx="7" fill="#23262e" opacity="0.85" />
+          <rect id="grip-r" x="560" y="146" width="40" height="16" rx="8" fill="#23262e" />
+
+          <!-- caption -->
+          <text x="500" y="512" text-anchor="middle" class="bike-caption">SUR-RON · LIGHT BEE X</text>
+        </svg>
+
+        <!-- floating hotspots get injected here by JS -->
+        <div id="hotspots" class="hotspots"></div>
+      </div>
+
+      <p class="stage-hint">Click a part chip on the right (or a dot on the bike) to open its catalog.</p>
+    </section>
+
+    <!-- ===================== CONFIGURATOR ===================== -->
+    <aside class="panel" aria-label="Parts configurator">
+      <div class="panel-head">
+        <h2>Parts</h2>
+        <button id="resetBtn" class="ghost-btn" type="button">Reset to stock</button>
+      </div>
+
+      <div class="base-row">
+        <span id="baseName">Donor bike</span>
+        <span id="basePrice">$0</span>
+      </div>
+
+      <div id="categoryList" class="category-list"><!-- chips injected by JS --></div>
+
+      <div class="summary">
+        <div class="summary-row"><span>Bike</span><span id="sumBase">$0</span></div>
+        <div class="summary-row"><span>Upgrades</span><span id="sumUpgrades">$0</span></div>
+        <div class="summary-row total"><span>Estimated total</span><span id="sumTotal">$0</span></div>
+        <button id="cartBtn" class="primary-btn" type="button">View parts list &amp; links →</button>
+      </div>
+
+      <p class="disclaimer">Prices are <strong>estimates</strong> in USD and link out to real Sur-Ron retailers.
+        Live in-store pricing is not pulled here (sandbox network is restricted). Always confirm on the store page.</p>
+    </aside>
+  </main>
+
+  <!-- ===================== CATALOG MODAL ===================== -->
+  <div id="catalogModal" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <div>
+          <h3 id="modalTitle">Part</h3>
+          <p id="modalBlurb" class="modal-blurb"></p>
+        </div>
+        <button id="closeModal" class="icon-btn" aria-label="Close">✕</button>
+      </div>
+      <div id="optionGrid" class="option-grid"><!-- options injected --></div>
+    </div>
+  </div>
+
+  <!-- ===================== CART / BUILD SHEET ===================== -->
+  <div id="cartModal" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <div class="modal-head">
+        <h3 id="cartTitle">Your build</h3>
+        <button id="closeCart" class="icon-btn" aria-label="Close">✕</button>
+      </div>
+      <div id="cartList" class="cart-list"></div>
+      <div class="cart-total"><span>Estimated total</span><span id="cartTotal">$0</span></div>
+    </div>
+  </div>
+
+  <script src="js/catalog.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
