@@ -10,6 +10,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Pirata+One&family=Oswald:wght@300;400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
+<script type="importmap">
+{ "imports": { "three": "./js/vendor/three.module.min.js" } }
+</script>
 </head>
 <body>
 
@@ -33,6 +36,7 @@
 <header class="nav" id="nav">
   <div class="nav-left">
     <a href="#drop" class="nav-link" data-cursor="view">The Drop</a>
+    <a href="#atelier" class="nav-link" data-cursor="view">Atelier</a>
     <a href="#forge" class="nav-link" data-cursor="forge">Halo Forge</a>
     <a href="#lookbook" class="nav-link" data-cursor="view">Visions</a>
     <a href="#gospel" class="nav-link">Gospel</a>
@@ -52,6 +56,7 @@
 <nav class="menu" id="menu">
   <div class="menu-nav">
     <a href="#drop"><span class="idx">01</span>The Drop</a>
+    <a href="#atelier"><span class="idx">✦</span>Atelier 360°</a>
     <a href="#forge"><span class="idx">02</span>Halo Forge</a>
     <a href="#lookbook"><span class="idx">03</span>Visions</a>
     <a href="#gospel"><span class="idx">04</span>Gospel</a>
@@ -113,6 +118,41 @@
       <div class="sec-index reveal d2">SS / MMXXV &nbsp;·&nbsp; 03 PIECES</div>
     </div>
     <div class="grid" id="productGrid"><!-- cards injected by JS --></div>
+  </section>
+
+  <!-- ATELIER (3D) -->
+  <section class="section atelier" id="atelier">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow u-label reveal">Interactive — 360°</div>
+        <h2 class="reveal d1">The <em>Atelier</em></h2>
+      </div>
+      <div class="sec-index reveal d2">Drag to rotate</div>
+    </div>
+    <div class="atelier-wrap reveal">
+      <div class="atelier-stage" id="atelierStage">
+        <div class="atelier-badge card-tag" id="atelierBadge">TRINITY</div>
+        <canvas id="atelierCanvas"></canvas>
+        <div class="atelier-loading" id="atelierLoading">
+          <div><img src="assets/mark.png" alt=""><span class="u-label">Summoning the relic…</span></div>
+        </div>
+        <div class="atelier-fallback"><img src="assets/mark.png" alt="Ascension"></div>
+        <div class="atelier-hint u-label" id="atelierHint">✦ Drag to rotate</div>
+      </div>
+      <div class="atelier-panel">
+        <h3 id="atelierName">The Trinity Tee</h3>
+        <div class="fp-price" id="atelierPrice">$65</div>
+        <p class="a-desc" id="atelierDesc">Rotate the relic in real space. Spun in WebGL — real lights, a floating halo, and the washed texture in full dimension.</p>
+        <div class="forge-row">
+          <div class="fr-label"><span class="u-label">Silhouette</span></div>
+          <div class="opt-row" id="atelierSwitch"></div>
+        </div>
+        <div class="atelier-actions">
+          <button class="btn" id="atelierSpin" data-cursor="forge">Toggle Spin</button>
+          <button class="btn solid" id="atelierAdd" data-cursor="add">View &amp; Add <span class="arr">→</span></button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- HALO FORGE -->
@@ -292,5 +332,6 @@
 <div class="ascend-flash" id="ascendFlash"><img src="assets/mark.png" alt="" /></div>
 
 <script src="js/main.js"></script>
+<script type="module" src="js/atelier.js"></script>
 </body>
 </html>

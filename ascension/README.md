@@ -5,6 +5,8 @@ halos, washed-black palette, film grain, and a set of genuinely unique interacti
 
 Built from the brand's own logo + product mockups (sliced into front/back images).
 
+**Live:** published as a hosted artifact (private to the owner) — shareable from its Share menu.
+
 ## Open it
 
 Two ways:
@@ -21,6 +23,7 @@ Two ways:
 
 | Feature | What it does |
 |---|---|
+| **The Atelier — 3D viewer** | A real WebGL (three.js) garment you can **drag to spin 360°**. Front/back textures on a curved cloth mesh, a floating emissive **halo** with real lights + glow, brand rim-lights (red/royal), soft studio environment, auto-rotate, and a silhouette switcher. Vendored locally in `js/vendor/` (no CDN needed). |
 | **Custom halo cursor** | Difference-blend ring + dot that eases behind the pointer, grows on hover, shows context labels (VIEW / ADD / BAG…). Magnetic buttons pull toward it. Auto-disabled on touch. |
 | **Preloader** | Breathing halo mark + 0→100% "ASCENDING" counter, then reveals the hero with a text-scramble. |
 | **Scramble text** | Headings decode from gothic glyphs when they enter the viewport. |

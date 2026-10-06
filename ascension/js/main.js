@@ -13,7 +13,15 @@
     { id:"trinity-tee", name:"The Trinity Tee", price:65, tag:"NEW", sub:"Washed Black · Trinity",
       front:"assets/tee_front.webp", back:"assets/tee_back.webp",
       desc:"Heavyweight 240gsm vintage-washed tee. Blackletter ASCENSION at the left chest; the Trinity halo graphic — red, bone, royal — cracked and sun-faded across the back. Boxy, dropped shoulder.",
-      sizes:["S","M","L","XL"], dots:["#c2302a","#ece7dc","#2b49e0"] },
+      sizes:["S","M","L","XL"], dots:["#1b1b1e","#c2302a","#2b49e0"] },
+    { id:"blood-tee", name:"Trinity Tee — Blood", price:68, tag:"LIMITED", sub:"Overdyed Oxblood · Trinity",
+      front:"assets/tee_blood_front.webp", back:"assets/tee_blood_back.webp",
+      desc:"The Trinity on an overdyed oxblood body, hand-washed for a cracked vintage hand. A limited consecration for the devout.",
+      sizes:["S","M","L","XL"], dots:["#8e1f1a","#c2302a","#2b49e0"] },
+    { id:"sand-tee", name:"Trinity Tee — Sand", price:68, tag:"LIMITED", sub:"Washed Sand · Trinity",
+      front:"assets/tee_bone_front.webp", back:"assets/tee_bone_back.webp",
+      desc:"A sun-bleached fatigue-sand colorway. Washed soft, built heavy. Strictly limited run.",
+      sizes:["S","M","L","XL"], dots:["#b7a98a","#c2302a","#2b49e0"] },
     { id:"spectrum-zip", name:"Spectrum Zip Hoodie", price:150, tag:"NEW", sub:"Washed Black · Spectrum",
       front:"assets/hoodie_rbw_front.webp", back:"assets/hoodie_rbw_back.webp",
       desc:"Garment-dyed 480gsm zip hoodie with distressed hem and cuffs. Six haloed A's in full spectrum stacked down the back. Oversized boxy fit, double-layer hood.",
@@ -21,24 +29,37 @@
     { id:"phantom-zip", name:"Phantom Zip Hoodie", price:145, tag:"NEW", sub:"Washed Black · Tonal",
       front:"assets/hoodie_wash_front.webp", back:"assets/hoodie_wash_back.webp",
       desc:"The Spectrum silhouette rendered in full tonal — washed-black on washed-black, haloed A's ghosted across the back. For those who move unseen.",
-      sizes:["S","M","L","XL","XXL"], dots:["#4a4a4e","#232326"] }
+      sizes:["S","M","L","XL","XXL"], dots:["#1b1b1e","#3a3a3e"] },
+    { id:"ash-zip", name:"Phantom Zip — Ash", price:148, tag:"LIMITED", sub:"Stone-washed Ash · Tonal",
+      front:"assets/hoodie_wash_ash_front.webp", back:"assets/hoodie_wash_ash_back.webp",
+      desc:"The Phantom cut, stone-washed to a ghost-grey ash. Tonal haloed A's ride across the back.",
+      sizes:["S","M","L","XL","XXL"], dots:["#7a7a80","#9a9aa0"] }
   ];
 
   const SW = {
     trinity:  "linear-gradient(135deg,#c2302a 0 33%,#ece7dc 33% 66%,#2b49e0 66%)",
+    blood:    "linear-gradient(135deg,#9d241d,#3c0f0c)",
+    sand:     "linear-gradient(135deg,#c9bb98,#8a7d5e)",
     spectrum: "conic-gradient(from 210deg,#c2302a,#c6a15b,#1f9d55,#2b49e0,#7a3cc0,#c2302a)",
-    tonal:    "linear-gradient(135deg,#4a4a4e,#232326)"
+    tonal:    "linear-gradient(135deg,#4a4a4e,#232326)",
+    ash:      "linear-gradient(135deg,#9a9aa0,#5c5c62)"
   };
   const FORGE = {
     silhouettes: [ {id:"tee", label:"Boxy Tee", sizes:["S","M","L","XL"]},
                    {id:"zip", label:"Zip Hoodie", sizes:["S","M","L","XL","XXL"]} ],
     colorways: [ {id:"trinity", label:"Trinity · R/W/B"},
+                 {id:"blood", label:"Blood · Oxblood"},
+                 {id:"sand", label:"Sand · Fatigue"},
                  {id:"spectrum", label:"Spectrum"},
-                 {id:"tonal", label:"Tonal · Phantom"} ],
+                 {id:"tonal", label:"Tonal · Phantom"},
+                 {id:"ash", label:"Ash · Ghost"} ],
     combos: {
-      "tee:trinity":  {id:"trinity-tee",  name:"The Trinity Tee",     price:65,  front:"assets/tee_front.webp",        back:"assets/tee_back.webp",        badge:"TRINITY",  halo:"#c6a15b"},
-      "zip:spectrum": {id:"spectrum-zip", name:"Spectrum Zip Hoodie", price:150, front:"assets/hoodie_rbw_front.webp", back:"assets/hoodie_rbw_back.webp", badge:"SPECTRUM", halo:"#c6a15b"},
-      "zip:tonal":    {id:"phantom-zip",  name:"Phantom Zip Hoodie",  price:145, front:"assets/hoodie_wash_front.webp",back:"assets/hoodie_wash_back.webp",badge:"PHANTOM",  halo:"#6a6a6e"}
+      "tee:trinity":  {id:"trinity-tee",  name:"The Trinity Tee",      price:65,  front:"assets/tee_front.webp",         back:"assets/tee_back.webp",         badge:"TRINITY",  halo:"#c6a15b"},
+      "tee:blood":    {id:"blood-tee",    name:"Trinity Tee — Blood",  price:68,  front:"assets/tee_blood_front.webp",   back:"assets/tee_blood_back.webp",   badge:"BLOOD",    halo:"#c2302a"},
+      "tee:sand":     {id:"sand-tee",     name:"Trinity Tee — Sand",   price:68,  front:"assets/tee_bone_front.webp",    back:"assets/tee_bone_back.webp",    badge:"SAND",     halo:"#c6a15b"},
+      "zip:spectrum": {id:"spectrum-zip", name:"Spectrum Zip Hoodie",  price:150, front:"assets/hoodie_rbw_front.webp",  back:"assets/hoodie_rbw_back.webp",  badge:"SPECTRUM", halo:"#c6a15b"},
+      "zip:tonal":    {id:"phantom-zip",  name:"Phantom Zip Hoodie",   price:145, front:"assets/hoodie_wash_front.webp", back:"assets/hoodie_wash_back.webp", badge:"PHANTOM",  halo:"#6a6a6e"},
+      "zip:ash":      {id:"ash-zip",      name:"Phantom Zip — Ash",    price:148, front:"assets/hoodie_wash_ash_front.webp", back:"assets/hoodie_wash_ash_back.webp", badge:"ASH", halo:"#9a9aa0"}
     }
   };
   const FREE_SHIP = 150;
@@ -391,6 +412,11 @@
 
   /* ============================== INIT =============================== */
   renderCart(); updateForge(false);
+  // expose hooks for the 3D atelier module
+  window.Ascension = {
+    add, openCart: ()=>openCart(true), toast,
+    openModal: id => openModal(id)
+  };
   // keyboard: Esc closes overlays
   addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeModal(); openCart(false); toggleMenu(false); } });
   // smooth-scroll offset handled by CSS scroll-behavior; close menu already wired
