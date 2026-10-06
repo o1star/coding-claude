@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vancouver Westside Card Show</title>
+  <meta name="description" content="Vancouver Westside Card Show (VWCC) — buy, sell and trade sports cards, Pokémon and trading card games on Vancouver's Westside." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    /* =====================================================================
+       ✏️  EDIT YOUR SHOW DETAILS HERE
+       ---------------------------------------------------------------------
+       Everything on the page comes from this list. Change the text between
+       the quote marks, save, and the website updates. Keep the quote marks
+       and commas. Anything still marked "TBD" is a placeholder.
+       ===================================================================== */
+    const SHOW = {
+      name: "Vancouver Westside Card Show",
+      shortName: "VWCC",
+      tagline: "Buy · Sell · Trade on Vancouver's Westside",
+
+      // Next show date and time. Format: "YYYY-MM-DDTHH:MM" (24-hour clock).
+      // Example: "2026-11-15T10:00" means November 15, 2026 at 10:00 AM.
+      nextShowStart: "2026-11-15T10:00",
+      nextShowEnd:   "2026-11-15T16:00",
+
+      venueName:    "Venue TBD",
+      venueAddress: "Street address TBD, Vancouver, BC",
+
+      admission:      "TBD",          // e.g. "$5 · Kids under 12 free"
+      tablePrice:     "TBD",          // e.g. "$60 per 6-ft table"
+      tablesAvailable:"TBD",          // e.g. "40 tables"
+
+      email:     "info@example.com",  // replace with your real email
+      instagram: "",                  // e.g. "https://instagram.com/yourpage" (leave "" to hide)
+      facebook:  "",                  // e.g. "https://facebook.com/yourpage"  (leave "" to hide)
+
+      // Future show dates shown in the "Upcoming shows" list.
+      upcoming: [
+        { date: "2026-11-15", note: "Fall show" },
+        { date: "2026-12-13", note: "Holiday show" },
+        { date: "2027-01-17", note: "New Year show" }
+      ]
+    };
+  </script>
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-2: #111833;
+      --panel: #151d3d;
+      --line: #263063;
+      --text: #eef1ff;
+      --muted: #a6aed6;
+      --gold: #ffc53d;
+      --gold-deep: #e8a500;
+      --red: #ff4d5e;
+      --teal: #2fd5c5;
+      --radius: 16px;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: var(--gold); }
+    img { max-width: 100%; }
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+    h1, h2, h3 { font-family: "Bebas Neue", Impact, sans-serif; letter-spacing: .02em; font-weight: 400; line-height: 1.05; margin: 0 0 .4em; }
+    h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+    h3 { font-size: 1.6rem; }
+    section { padding: 80px 0; }
+    .eyebrow { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: .16em; font-size: .8rem; margin-bottom: 8px; }
+    .lead { color: var(--muted); font-size: 1.1rem; max-width: 640px; }
+
+    /* ---------- Nav ---------- */
+    .nav { position: sticky; top: 0; z-index: 50; background: rgba(11,16,32,.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+    .logo-badge { width: 38px; height: 38px; border-radius: 9px; background: linear-gradient(135deg, var(--gold), var(--red)); display: grid; place-items: center; font-family: "Bebas Neue"; font-size: 1.05rem; color: #0b1020; transform: rotate(-6deg); box-shadow: 0 4px 14px rgba(255,197,61,.35); }
+    .logo-text { font-family: "Bebas Neue"; font-size: 1.5rem; letter-spacing: .04em; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: .95rem; }
+    .nav-links a:hover { color: var(--text); }
+    .menu-btn { display: none; background: none; border: 1px solid var(--line); color: var(--text); border-radius: 10px; padding: 8px 12px; font: inherit; cursor: pointer; }
+
+    /* ---------- Buttons ---------- */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 24px; border-radius: 12px; font-weight: 700; text-decoration: none; transition: transform .15s, box-shadow .15s; border: 0; cursor: pointer; font-size: 1rem; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold { background: var(--gold); color: #0b1020; box-shadow: 0 8px 24px rgba(255,197,61,.3); }
+    .btn-ghost { background: transparent; color: var(--text); border: 1.5px solid var(--line); }
+    .btn-ghost:hover { border-color: var(--gold); }
+
+    /* ---------- Hero ---------- */
+    .hero { position: relative; padding: 90px 0 70px; overflow: hidden;
+      background:
+        radial-gradient(900px 500px at 85% 10%, rgba(255,77,94,.18), transparent 60%),
+        radial-gradient(800px 500px at 10% 90%, rgba(47,213,197,.14), transparent 60%),
+        var(--bg); }
+    .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; }
+    .hero h1 { font-size: clamp(3.2rem, 9vw, 6.2rem); }
+    .hero h1 .gold { color: var(--gold); display: block; }
+    .hero .lead { margin: 0 0 28px; }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .next-show { display: inline-flex; align-items: center; gap: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 6px 16px 6px 6px; margin-bottom: 20px; font-weight: 600; font-size: .92rem; }
+    .next-show .dot { background: var(--red); color: #fff; border-radius: 999px; padding: 4px 10px; font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; }
+
+    /* Card fan */
+    .fan { position: relative; height: 380px; }
+    .tcard { position: absolute; left: 50%; top: 50%; width: 190px; height: 266px; margin: -133px 0 0 -95px; border-radius: 14px; padding: 10px; box-shadow: 0 20px 50px rgba(0,0,0,.55); transition: transform .4s cubic-bezier(.2,.8,.2,1); }
+    .tcard .inner { height: 100%; border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between; padding: 14px; position: relative; overflow: hidden; }
+    .tcard .inner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.35) 45%, transparent 60%); transform: translateX(-100%); animation: shine 5s infinite; }
+    @keyframes shine { 0%,60% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+    .tcard .label { font-family: "Bebas Neue"; font-size: 1.6rem; color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,.4); line-height: 1; }
+    .tcard .icon { font-size: 4rem; text-align: center; filter: drop-shadow(0 4px 10px rgba(0,0,0,.35)); }
+    .tcard .foot { font-size: .7rem; font-weight: 800; letter-spacing: .14em; color: rgba(255,255,255,.85); text-transform: uppercase; }
+    .c1 { background: #f2f2f2; transform: rotate(-16deg) translate(-90px, 18px); }
+    .c1 .inner { background: linear-gradient(160deg, #1e5bd8, #0c2a74); }
+    .c2 { background: #ffd95e; transform: rotate(0deg) translateY(-14px); z-index: 2; }
+    .c2 .inner { background: linear-gradient(160deg, #ff8a3d, #d12a3c); }
+    .c3 { background: #f2f2f2; transform: rotate(16deg) translate(90px, 18px); }
+    .c3 .inner { background: linear-gradient(160deg, #19b48f, #0d5c63); }
+    .fan:hover .c1 { transform: rotate(-22deg) translate(-130px, 24px); }
+    .fan:hover .c3 { transform: rotate(22deg) translate(130px, 24px); }
+    .fan:hover .c2 { transform: translateY(-28px) scale(1.04); }
+
+    /* ---------- Facts strip ---------- */
+    .facts { padding: 0; margin-top: -10px; }
+    .facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+    .fact { padding: 22px 22px; border-right: 1px solid var(--line); }
+    .fact:last-child { border-right: 0; }
+    .fact .k { color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .14em; font-weight: 700; }
+    .fact .v { font-weight: 700; font-size: 1.05rem; margin-top: 4px; }
+
+    /* ---------- Countdown ---------- */
+    .countdown { display: flex; gap: 10px; margin-top: 26px; flex-wrap: wrap; }
+    .cd { background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; min-width: 74px; text-align: center; }
+    .cd b { display: block; font-family: "Bebas Neue"; font-size: 2rem; line-height: 1; color: var(--gold); }
+    .cd span { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
+
+    /* ---------- Feature cards ---------- */
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+    .feature { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; transition: border-color .2s, transform .2s; }
+    .feature:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .feature .ico { font-size: 2rem; margin-bottom: 10px; }
+    .feature p { color: var(--muted); margin: 0; }
+
+    .alt { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+    /* ---------- Vendors ---------- */
+    .vendor { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+    .price-card { background: linear-gradient(160deg, #1b2550, #121a3a); border: 1px solid var(--line); border-radius: 20px; padding: 32px; position: relative; overflow: hidden; }
+    .price-card::before { content: ""; position: absolute; width: 240px; height: 240px; right: -80px; top: -80px; background: radial-gradient(circle, rgba(255,197,61,.25), transparent 70%); }
+    .price-big { font-family: "Bebas Neue"; font-size: 3.6rem; color: var(--gold); line-height: 1; }
+    .checks { list-style: none; padding: 0; margin: 20px 0 26px; }
+    .checks li { padding: 7px 0 7px 30px; position: relative; color: var(--muted); }
+    .checks li::before { content: "✓"; position: absolute; left: 0; color: var(--teal); font-weight: 800; }
+    .steps { counter-reset: s; list-style: none; padding: 0; margin: 20px 0 0; }
+    .steps li { counter-increment: s; position: relative; padding: 0 0 22px 52px; color: var(--muted); }
+    .steps li strong { color: var(--text); display: block; }
+    .steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 36px; height: 36px; border-radius: 10px; background: var(--panel); border: 1px solid var(--line); display: grid; place-items: center; font-weight: 800; color: var(--gold); }
+
+    /* ---------- Upcoming ---------- */
+    .shows { display: grid; gap: 12px; margin-top: 30px; }
+    .show-row { display: grid; grid-template-columns: 90px 1fr auto; align-items: center; gap: 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 18px; }
+    .datebox { background: var(--bg); border: 1px solid var(--line); border-radius: 10px; text-align: center; padding: 6px 0; }
+    .datebox .m { color: var(--red); font-weight: 800; font-size: .75rem; letter-spacing: .14em; }
+    .datebox .d { font-family: "Bebas Neue"; font-size: 2.1rem; line-height: 1; }
+    .show-row .t { font-weight: 700; }
+    .show-row .s { color: var(--muted); font-size: .92rem; }
+    .tag { background: rgba(255,197,61,.12); color: var(--gold); border: 1px solid rgba(255,197,61,.35); padding: 4px 12px; border-radius: 999px; font-size: .8rem; font-weight: 700; white-space: nowrap; }
+
+    /* ---------- Location ---------- */
+    .loc { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; align-items: stretch; }
+    .map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); min-height: 320px; background: var(--panel); }
+    .map iframe { width: 100%; height: 100%; min-height: 320px; border: 0; filter: grayscale(.2) contrast(1.05); }
+    .info-list { display: grid; gap: 14px; margin-top: 18px; }
+    .info-item { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+    .info-item .k { color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .14em; font-weight: 700; }
+
+    /* ---------- FAQ ---------- */
+    .faq { max-width: 780px; margin-top: 28px; }
+    details { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 10px; }
+    summary { cursor: pointer; padding: 18px 20px; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--gold); font-size: 1.4rem; line-height: 1; }
+    details[open] summary::after { content: "–"; }
+    details p { margin: 0; padding: 0 20px 18px; color: var(--muted); }
+
+    /* ---------- CTA + footer ---------- */
+    .cta { text-align: center; background: linear-gradient(135deg, rgba(255,197,61,.14), rgba(255,77,94,.12)); border: 1px solid var(--line); border-radius: 24px; padding: 56px 24px; }
+    .cta .lead { margin: 0 auto 26px; }
+    footer { border-top: 1px solid var(--line); padding: 36px 0; color: var(--muted); font-size: .92rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .socials { display: flex; gap: 16px; }
+    .socials a { color: var(--muted); text-decoration: none; font-weight: 600; }
+    .socials a:hover { color: var(--gold); }
+
+    /* ---------- Phone / tablet ---------- */
+    @media (max-width: 900px) {
+      .hero .wrap, .vendor, .loc { grid-template-columns: 1fr; }
+      .fan { height: 320px; transform: scale(.85); }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .facts-grid { grid-template-columns: 1fr 1fr; }
+      .fact:nth-child(2) { border-right: 0; }
+      .fact:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    }
+    @media (max-width: 720px) {
+      .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--bg-2); border-bottom: 1px solid var(--line); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 14px 16px; border-top: 1px solid var(--line); }
+      .menu-btn { display: block; }
+      .nav .btn { display: none; }
+      section { padding: 60px 0; }
+      .hero { padding: 50px 0 40px; }
+      .fan { height: 280px; transform: scale(.72); margin: -20px 0; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .facts-grid { grid-template-columns: 1fr; }
+      .fact { border-right: 0 !important; border-bottom: 1px solid var(--line); }
+      .fact:last-child { border-bottom: 0; }
+      .show-row { grid-template-columns: 70px 1fr; }
+      .show-row .tag { grid-column: 2; justify-self: start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <nav class="nav">
+    <div class="wrap">
+      <a href="#top" class="logo" aria-label="Home">
+        <span class="logo-badge" data-show="shortName">VWCC</span>
+        <span class="logo-text">Westside Card Show</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#find">What's there</a>
+        <a href="#vendors">Vendors</a>
+        <a href="#dates">Dates</a>
+        <a href="#location">Location</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a href="#vendors" class="btn btn-gold" style="padding:10px 18px">Book a table</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰ Menu</button>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <div class="next-show"><span class="dot">Next show</span><span id="heroDate">Date TBD</span></div>
+        <h1>Vancouver Westside <span class="gold">Card Show</span></h1>
+        <p class="lead"><span data-show="tagline"></span>. Sports cards, Pokémon, Magic, One Piece and more — dozens of vendors under one roof. Bring your binder.</p>
+        <div class="hero-ctas">
+          <a href="#location" class="btn btn-gold">Plan your visit</a>
+          <a href="#vendors" class="btn btn-ghost">Become a vendor</a>
+        </div>
+        <div class="countdown" id="countdown" aria-label="Countdown to the next show"></div>
+      </div>
+      <div class="fan" aria-hidden="true">
+        <div class="tcard c1"><div class="inner"><div class="label">Sports</div><div class="icon">🏒</div><div class="foot">Hockey · Baseball · NBA</div></div></div>
+        <div class="tcard c2"><div class="inner"><div class="label">VWCC</div><div class="icon">⭐</div><div class="foot">Buy · Sell · Trade</div></div></div>
+        <div class="tcard c3"><div class="inner"><div class="label">TCG</div><div class="icon">⚡</div><div class="foot">Pokémon · Magic · More</div></div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== QUICK FACTS ===================== -->
+  <section class="facts">
+    <div class="wrap">
+      <div class="facts-grid">
+        <div class="fact"><div class="k">📅 Date</div><div class="v" id="factDate">TBD</div></div>
+        <div class="fact"><div class="k">⏰ Hours</div><div class="v" id="factTime">TBD</div></div>
+        <div class="fact"><div class="k">📍 Venue</div><div class="v" data-show="venueName"></div></div>
+        <div class="fact"><div class="k">🎟️ Admission</div><div class="v" data-show="admission"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT YOU'LL FIND ===================== -->
+  <section id="find">
+    <div class="wrap">
+      <div class="eyebrow">What you'll find</div>
+      <h2>Something for every collector</h2>
+      <p class="lead">Whether you're chasing a grail or just starting out, walk the floor and you'll find it.</p>
+      <div class="grid-3">
+        <div class="feature"><div class="ico">🏒</div><h3>Sports cards</h3><p>Hockey, baseball, basketball, football and soccer — vintage, modern, rookies and autos.</p></div>
+        <div class="feature"><div class="ico">⚡</div><h3>Pokémon & TCG</h3><p>Pokémon, Magic: The Gathering, One Piece, Yu-Gi-Oh!, Lorcana — singles, sealed and slabs.</p></div>
+        <div class="feature"><div class="ico">💎</div><h3>Graded slabs</h3><p>PSA, BGS, SGC and CGC graded cards from trusted vendors. Inspect before you buy.</p></div>
+        <div class="feature"><div class="ico">🤝</div><h3>Buy · Sell · Trade</h3><p>Bring your collection. Vendors are buying and trading all day.</p></div>
+        <div class="feature"><div class="ico">📦</div><h3>Sealed product</h3><p>Hobby boxes, booster boxes, ETBs and blasters, plus box breaks and rips.</p></div>
+        <div class="feature"><div class="ico">🛡️</div><h3>Supplies</h3><p>Sleeves, top loaders, binders and cases to keep your pulls safe.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VENDORS ===================== -->
+  <section id="vendors" class="alt">
+    <div class="wrap vendor">
+      <div>
+        <div class="eyebrow">For vendors</div>
+        <h2>Get a table at the next show</h2>
+        <p class="lead">Reach serious Westside collectors. Tables go fast, so book early.</p>
+        <ol class="steps">
+          <li><strong>Email us</strong>Tell us your name, what you sell, and how many tables you want.</li>
+          <li><strong>Get confirmed</strong>We'll reply with your table spot and payment details.</li>
+          <li><strong>Set up on show day</strong>Vendor setup opens before doors open to the public.</li>
+        </ol>
+      </div>
+      <div class="price-card">
+        <div class="eyebrow">Table price</div>
+        <div class="price-big" data-show="tablePrice"></div>
+        <ul class="checks">
+          <li>Table and chairs included</li>
+          <li>Early setup before doors open</li>
+          <li>Listed on our vendor page and socials</li>
+          <li><span data-show="tablesAvailable"></span> available per show</li>
+        </ul>
+        <a class="btn btn-gold" id="vendorEmail" href="#">Email to book a table</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== UPCOMING DATES ===================== -->
+  <section id="dates">
+    <div class="wrap">
+      <div class="eyebrow">Mark your calendar</div>
+      <h2>Upcoming shows</h2>
+      <div class="shows" id="showList"></div>
+    </div>
+  </section>
+
+  <!-- ===================== LOCATION ===================== -->
+  <section id="location" class="alt">
+    <div class="wrap loc">
+      <div>
+        <div class="eyebrow">Getting there</div>
+        <h2>Location</h2>
+        <p class="lead">On Vancouver's Westside.</p>
+        <div class="info-list">
+          <div class="info-item"><div class="k">Venue</div><div data-show="venueName"></div></div>
+          <div class="info-item"><div class="k">Address</div><div data-show="venueAddress"></div></div>
+          <div class="info-item"><div class="k">Admission</div><div data-show="admission"></div></div>
+        </div>
+        <p style="margin-top:20px"><a class="btn btn-ghost" id="directions" target="_blank" rel="noopener">Get directions ↗</a></p>
+      </div>
+      <div class="map"><iframe id="mapFrame" title="Map to the show" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="eyebrow">Questions</div>
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>How much does it cost to get in?</summary><p>Admission is <span data-show="admission"></span>. Check back here before each show for the latest info.</p></details>
+        <details><summary>Can I sell or trade my own cards?</summary><p>Yes. Many vendors buy and trade on the floor, so bring your cards. If you want to sell a lot, consider booking a table.</p></details>
+        <details><summary>Do vendors take cards or e-transfer?</summary><p>Most vendors take cash and many take Interac e-Transfer or card. Cash is always a safe bet.</p></details>
+        <details><summary>Is it kid-friendly?</summary><p>Absolutely. Card collecting is for all ages, and Pokémon fans of every age are welcome.</p></details>
+        <details><summary>How do I become a vendor?</summary><p>Email us with your name, what you sell, and how many tables you need. See the <a href="#vendors">Vendors</a> section for details.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section>
+    <div class="wrap">
+      <div class="cta">
+        <h2>See you at the show</h2>
+        <p class="lead">Questions, vendor bookings, or want to help out? Send us a message.</p>
+        <a class="btn btn-gold" id="contactEmail" href="#">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div>© <span id="year"></span> <span data-show="name"></span></div>
+      <div class="socials" id="socials"></div>
+    </div>
+  </footer>
+
+  <script>
+    // Fill the page from the SHOW details at the top. You shouldn't need to edit below this line.
+    (function () {
+      const $ = (s) => document.querySelector(s);
+
+      document.querySelectorAll("[data-show]").forEach((el) => {
+        const v = SHOW[el.dataset.show];
+        if (v !== undefined) el.textContent = v;
+      });
+
+      const start = new Date(SHOW.nextShowStart);
+      const end = new Date(SHOW.nextShowEnd);
+      const hasDate = !isNaN(start);
+      const dateFmt = { weekday: "long", month: "long", day: "numeric", year: "numeric" };
+      const timeFmt = { hour: "numeric", minute: "2-digit" };
+
+      if (hasDate) {
+        const dateStr = start.toLocaleDateString("en-CA", dateFmt);
+        $("#heroDate").textContent = start.toLocaleDateString("en-CA", { weekday: "short", month: "short", day: "numeric" });
+        $("#factDate").textContent = dateStr;
+        if (!isNaN(end)) {
+          $("#factTime").textContent =
+            start.toLocaleTimeString("en-CA", timeFmt) + " – " + end.toLocaleTimeString("en-CA", timeFmt);
+        }
+      }
+
+      // Countdown
+      const cd = $("#countdown");
+      function tick() {
+        const diff = start - new Date();
+        if (!hasDate || diff <= 0) {
+          cd.innerHTML = hasDate && new Date() < end ? '<div class="cd"><b>LIVE</b><span>Doors open</span></div>' : "";
+          return;
+        }
+        const d = Math.floor(diff / 864e5), h = Math.floor(diff / 36e5) % 24,
+              m = Math.floor(diff / 6e4) % 60, s = Math.floor(diff / 1e3) % 60;
+        cd.innerHTML = [[d, "Days"], [h, "Hours"], [m, "Min"], [s, "Sec"]]
+          .map(([n, l]) => `<div class="cd"><b>${String(n).padStart(2, "0")}</b><span>${l}</span></div>`).join("");
+      }
+      tick(); setInterval(tick, 1000);
+
+      // Upcoming shows (only future dates)
+      const today = new Date(); today.setHours(0, 0, 0, 0);
+      const list = SHOW.upcoming
+        .map((s) => ({ ...s, d: new Date(s.date + "T12:00") }))
+        .filter((s) => !isNaN(s.d) && s.d >= today)
+        .sort((a, b) => a.d - b.d);
+      $("#showList").innerHTML = list.length
+        ? list.map((s, i) => `
+            <div class="show-row">
+              <div class="datebox"><div class="m">${s.d.toLocaleDateString("en-CA", { month: "short" }).toUpperCase()}</div><div class="d">${s.d.getDate()}</div></div>
+              <div><div class="t">${s.d.toLocaleDateString("en-CA", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}</div>
+                   <div class="s">${s.note || ""} · ${SHOW.venueName}</div></div>
+              <span class="tag">${i === 0 ? "Next up" : "Upcoming"}</span>
+            </div>`).join("")
+        : '<p class="lead">New dates coming soon — follow us for announcements.</p>';
+
+      // Email links
+      const mail = (subject) => `mailto:${SHOW.email}?subject=${encodeURIComponent(subject)}`;
+      $("#vendorEmail").href = mail("Vendor table booking – " + SHOW.shortName);
+      $("#contactEmail").href = mail("Question about " + SHOW.name);
+
+      // Map + directions
+      const q = encodeURIComponent(SHOW.venueAddress.includes("TBD") ? "Kitsilano, Vancouver, BC" : SHOW.venueAddress);
+      $("#mapFrame").src = `https://maps.google.com/maps?q=${q}&z=14&output=embed`;
+      $("#directions").href = `https://www.google.com/maps/dir/?api=1&destination=${q}`;
+
+      // Socials
+      const soc = [["Instagram", SHOW.instagram], ["Facebook", SHOW.facebook], ["Email", "mailto:" + SHOW.email]]
+        .filter(([, url]) => url);
+      $("#socials").innerHTML = soc.map(([n, u]) => `<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join("");
+
+      $("#year").textContent = new Date().getFullYear();
+
+      // Mobile menu
+      const btn = $("#menuBtn"), links = $("#navLinks");
+      btn.addEventListener("click", () => {
+        const open = links.classList.toggle("open");
+        btn.setAttribute("aria-expanded", open);
+      });
+      links.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => links.classList.remove("open")));
+    })();
+  </script>
+</body>
+</html>
