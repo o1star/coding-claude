@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ASCENSION — Elevate the Mortal Form</title>
+<meta name="description" content="ASCENSION — gothic luxury streetwear. Divine by design. Est. MMXXV." />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Pirata+One&family=Oswald:wght@300;400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<script type="importmap">
+{ "imports": { "three": "./js/vendor/three.module.min.js" } }
+</script>
+</head>
+<body>
+
+<!-- overlays -->
+<div class="grain"></div>
+<div class="vignette"></div>
+<div class="cursor"></div>
+<div class="cursor-dot"></div>
+<div class="cursor-label"></div>
+
+<!-- preloader -->
+<div id="preloader">
+  <div class="pre-inner">
+    <img src="assets/mark.png" class="pre-mark" alt="Ascension" />
+    <div class="pre-bar"><span></span></div>
+    <div class="pre-count"><b>0</b>% — ASCENDING</div>
+  </div>
+</div>
+
+<!-- nav -->
+<header class="nav" id="nav">
+  <div class="nav-left">
+    <a href="#drop" class="nav-link" data-cursor="view">The Drop</a>
+    <a href="#atelier" class="nav-link" data-cursor="view">Atelier</a>
+    <a href="#forge" class="nav-link" data-cursor="forge">Halo Forge</a>
+    <a href="#lookbook" class="nav-link" data-cursor="view">Visions</a>
+    <a href="#gospel" class="nav-link">Gospel</a>
+  </div>
+  <a href="#top" class="nav-logo" data-cursor="home">
+    <img src="assets/mark.png" alt="Ascension mark" />
+    <span class="nl-word">ASCENSION</span>
+  </a>
+  <div class="nav-right">
+    <a href="#join" class="nav-link nav-hide-mobile">Congregation</a>
+    <button class="cart-btn" id="openCart" data-cursor="cart">Bag <span class="count" id="cartCount">0</span></button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- fullscreen menu -->
+<nav class="menu" id="menu">
+  <div class="menu-nav">
+    <a href="#drop"><span class="idx">01</span>The Drop</a>
+    <a href="#atelier"><span class="idx">✦</span>Atelier 360°</a>
+    <a href="#forge"><span class="idx">02</span>Halo Forge</a>
+    <a href="#lookbook"><span class="idx">03</span>Visions</a>
+    <a href="#gospel"><span class="idx">04</span>Gospel</a>
+    <a href="#join"><span class="idx">05</span>Congregation</a>
+  </div>
+  <div class="menu-side">
+    <div>
+      <h4>Index</h4>
+      <a href="#drop">Shop All</a>
+      <a href="#forge">Customize</a>
+      <a href="#lookbook">Lookbook SS/MMXXV</a>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Discord</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-word" data-parallax="0.15">A</div>
+    <div class="hero-inner">
+      <img src="assets/mark.png" class="hero-mark" data-parallax="-0.08" alt="" />
+      <h1 class="hero-title"><span class="scramble" data-text="ASCEN">ASCEN</span><span class="outline scramble" data-text="SION">SION</span></h1>
+      <div class="hero-sub u-label">
+        <span>Elevate the Mortal Form</span><span class="dot"></span>
+        <span>Est. MMXXV</span><span class="dot"></span>
+        <span>Divine by Design</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#drop" class="btn solid" data-cursor="enter">Enter the Drop <span class="arr">→</span></a>
+        <a href="#forge" class="btn" data-cursor="forge">Forge a Halo</a>
+      </div>
+    </div>
+    <div class="scroll-ind u-label"><span>Scroll</span><span class="line"></span></div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <!-- duplicated in JS-free way: two copies -->
+      <span>DIVINE BY DESIGN</span><span class="star">✦</span><span class="ghost">ELEVATE THE MORTAL FORM</span><span class="star">✦</span><span>EST. MMXXV</span><span class="star">✦</span><span class="ghost">NEW DROP — TRINITY</span><span class="star">✦</span>
+      <span>DIVINE BY DESIGN</span><span class="star">✦</span><span class="ghost">ELEVATE THE MORTAL FORM</span><span class="star">✦</span><span>EST. MMXXV</span><span class="star">✦</span><span class="ghost">NEW DROP — TRINITY</span><span class="star">✦</span>
+    </div>
+  </div>
+
+  <!-- THE DROP -->
+  <section class="section" id="drop">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow u-label reveal">Chapter 01 — The Drop</div>
+        <h2 class="reveal d1">The <em>Relics</em></h2>
+      </div>
+      <div class="sec-index reveal d2">SS / MMXXV &nbsp;·&nbsp; 03 PIECES</div>
+    </div>
+    <div class="grid" id="productGrid"><!-- cards injected by JS --></div>
+  </section>
+
+  <!-- ATELIER (3D) -->
+  <section class="section atelier" id="atelier">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow u-label reveal">Interactive — 360°</div>
+        <h2 class="reveal d1">The <em>Atelier</em></h2>
+      </div>
+      <div class="sec-index reveal d2">Drag to rotate</div>
+    </div>
+    <div class="atelier-wrap reveal">
+      <div class="atelier-stage" id="atelierStage">
+        <div class="atelier-badge card-tag" id="atelierBadge">TRINITY</div>
+        <canvas id="atelierCanvas"></canvas>
+        <div class="atelier-loading" id="atelierLoading">
+          <div><img src="assets/mark.png" alt=""><span class="u-label">Summoning the relic…</span></div>
+        </div>
+        <div class="atelier-fallback"><img src="assets/mark.png" alt="Ascension"></div>
+        <div class="atelier-hint u-label" id="atelierHint">✦ Drag to rotate</div>
+      </div>
+      <div class="atelier-panel">
+        <h3 id="atelierName">The Trinity Tee</h3>
+        <div class="fp-price" id="atelierPrice">$65</div>
+        <p class="a-desc" id="atelierDesc">Rotate the relic in real space. Spun in WebGL — real lights, a floating halo, and the washed texture in full dimension.</p>
+        <div class="forge-row">
+          <div class="fr-label"><span class="u-label">Silhouette</span></div>
+          <div class="opt-row" id="atelierSwitch"></div>
+        </div>
+        <div class="atelier-actions">
+          <button class="btn" id="atelierSpin" data-cursor="forge">Toggle Spin</button>
+          <button class="btn solid" id="atelierAdd" data-cursor="add">View &amp; Add <span class="arr">→</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HALO FORGE -->
+  <section class="section forge" id="forge">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow u-label reveal">Chapter 02 — Halo Forge</div>
+        <h2 class="reveal d1">Compose your <em>Relic</em></h2>
+      </div>
+      <div class="sec-index reveal d2">LIVE PREVIEW</div>
+    </div>
+
+    <div class="forge-wrap">
+      <div class="forge-stage reveal" id="forgeStage">
+        <div class="halo-ring" id="haloRing"></div>
+        <div class="forge-badge card-tag" id="forgeBadge">TRINITY</div>
+        <img class="forge-img" id="forgeImg" src="assets/tee_back.webp" alt="Preview" />
+        <div class="forge-flip">
+          <button data-face="front">FRONT</button>
+          <button data-face="back" class="active">BACK</button>
+        </div>
+      </div>
+
+      <div class="forge-panel reveal d1">
+        <h3 id="forgeName">The Trinity Tee</h3>
+        <div class="fp-price" id="forgePrice">$65</div>
+
+        <div class="forge-row">
+          <div class="fr-label"><span class="u-label">Silhouette</span><b id="forgeSilLabel">Boxy Tee</b></div>
+          <div class="opt-row" id="forgeSil"></div>
+        </div>
+
+        <div class="forge-row">
+          <div class="fr-label"><span class="u-label">Colorway</span><b id="forgeCwLabel">Trinity · R/W/B</b></div>
+          <div class="cw-row" id="forgeCw"></div>
+        </div>
+
+        <div class="forge-row">
+          <div class="fr-label"><span class="u-label">Size</span><b id="forgeSizeLabel">Select</b></div>
+          <div class="size-row" id="forgeSize"></div>
+        </div>
+
+        <button class="btn solid forge-add" id="forgeAdd" data-cursor="add">Consecrate — Add to Bag <span class="arr">→</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOOKBOOK -->
+  <section class="section" id="lookbook">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow u-label reveal">Chapter 03 — Visions</div>
+        <h2 class="reveal d1">The <em>Lookbook</em></h2>
+      </div>
+      <div class="sec-index reveal d2">SS / MMXXV</div>
+    </div>
+    <div class="look reveal">
+      <div class="look-item lg" data-cursor="view"><img src="assets/hoodie_rbw_back.webp" alt="" /><span class="cap">Spectrum Zip — Back</span></div>
+      <div class="look-item sm" data-cursor="view"><img src="assets/tee_back.webp" alt="" /><span class="cap">Trinity Tee</span></div>
+      <div class="look-item md" data-cursor="view"><img src="assets/hoodie_wash_front.webp" alt="" /><span class="cap">Phantom Zip — Front</span></div>
+      <div class="look-item wide" data-cursor="view"><img src="assets/hoodie_wash_back.webp" alt="" /><span class="cap">Phantom Zip — Back</span></div>
+    </div>
+  </section>
+
+  <!-- GOSPEL / MANIFESTO -->
+  <section class="section" id="gospel">
+    <div class="gospel">
+      <div class="kicker u-label reveal">The Gospel</div>
+      <p class="reveal d1">
+        We do not chase the <em>trend</em>.
+        <span class="dim">We rise above it.</span>
+        Every stitch a scripture, every <em>halo</em> a vow —
+        <span class="dim">worn by those who refuse to stay grounded.</span>
+        This is not clothing. This is <em>ascension.</em>
+      </p>
+      <div class="sign reveal d2">
+        <img src="assets/mark.png" alt="" />
+        <span class="u-label">— The House of Ascension</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN -->
+  <section class="section join" id="join">
+    <div class="join-wrap">
+      <div class="reveal">
+        <h2>Join the<br><em style="font-family:var(--font-goth);color:var(--red)">Congregation</em></h2>
+        <p>Early access to drops, hidden releases, and the rites only members receive. No noise. Only the divine.</p>
+      </div>
+      <div class="reveal d1">
+        <form class="join-form" id="joinForm">
+          <div class="fieldline">
+            <input type="email" id="joinEmail" placeholder="your@email.com" autocomplete="email" />
+            <button type="submit" data-cursor="join">Ascend →</button>
+            <span class="underline"></span>
+          </div>
+          <div class="join-note" id="joinNote">We guard your soul. Unsubscribe anytime.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/mark.png" alt="Ascension" />
+      <p>Gothic luxury for those who were never meant to stay on the ground. Designed in the dark. Est. MMXXV.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <a href="#drop">The Relics</a><a href="#forge">Halo Forge</a><a href="#">Gift Cards</a><a href="#">Size Guide</a>
+    </div>
+    <div>
+      <h4>House</h4>
+      <a href="#gospel">The Gospel</a><a href="#lookbook">Lookbook</a><a href="#">Shipping</a><a href="#">Returns</a>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Discord</a><a href="#join">Newsletter</a>
+    </div>
+  </div>
+  <div class="footer-word">ASCENSION</div>
+  <div class="footer-legal">
+    <span>© MMXXV Ascension. All Souls Reserved.</span>
+    <span>Type "ASCEND" anywhere — if you dare.</span>
+    <span>Terms · Privacy</span>
+  </div>
+</footer>
+
+<!-- cart -->
+<div class="scrim" id="scrim"></div>
+<aside class="cart" id="cart">
+  <div class="cart-head">
+    <h3>Your Bag <span id="cartHeadCount" style="font-family:var(--font-ui);font-size:14px;letter-spacing:.2em;color:var(--muted)"></span></h3>
+    <button class="x" id="closeCart" data-cursor="close">Close ✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot" id="cartFoot">
+    <div class="cart-line"><span>Subtotal</span><span id="cartSub">$0</span></div>
+    <div class="cart-line"><span>Shipping</span><span>Calculated at rites</span></div>
+    <div class="cart-line tot"><span>Total</span><span id="cartTot">$0</span></div>
+    <button class="btn solid" id="checkoutBtn" data-cursor="checkout">Proceed to Ascension <span class="arr">→</span></button>
+    <div class="freeship" id="freeship">Spend <b>$150</b> to unlock free divine shipping</div>
+  </div>
+</aside>
+
+<!-- quick-view modal -->
+<div class="modal-scrim" id="modalScrim">
+  <div class="modal" id="modal">
+    <div class="modal-media">
+      <button class="modal-x" id="modalX" data-cursor="close">✕</button>
+      <img id="modalFront" class="show" alt="" />
+      <img id="modalBack" alt="" />
+      <div class="mflip">
+        <button data-face="front" class="active">FRONT</button>
+        <button data-face="back">BACK</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="mb-tag u-label" id="modalTag">THE DROP</div>
+      <h3 id="modalName">—</h3>
+      <div class="mb-price" id="modalPrice">—</div>
+      <p class="mb-desc" id="modalDesc"></p>
+      <div class="mb-sizes">
+        <div class="mb-label u-label">Select Size</div>
+        <div class="size-row" id="modalSizes"></div>
+      </div>
+      <button class="btn solid mb-add" id="modalAdd" data-cursor="add">Add to Bag <span class="arr">→</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- toasts + easter egg -->
+<div class="toasts" id="toasts"></div>
+<div class="ascend-flash" id="ascendFlash"><img src="assets/mark.png" alt="" /></div>
+
+<script src="js/main.js"></script>
+<script type="module" src="js/atelier.js"></script>
+</body>
+</html>
