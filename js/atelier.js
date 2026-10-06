@@ -3,7 +3,6 @@
    Loads `three` via the page's importmap (vendored locally).
    ===================================================================== */
 import * as THREE from "three";
-import { OrbitControls } from "./vendor/OrbitControls.js";
 import { RoomEnvironment } from "./vendor/RoomEnvironment.js";
 
 const stage   = document.getElementById("atelierStage");
@@ -13,13 +12,16 @@ const hintEl  = document.getElementById("atelierHint");
 
 const GARMENTS = [
   { id:"trinity",  product:"trinity-tee",  name:"The Trinity Tee",     price:"$65",
-    front:"assets/cut/tee_front.png",         back:"assets/cut/tee_back.png",         halo:0xc6a15b,
+    front:"assets/cut/tee_front.png",  frontH:"assets/cut/tee_front_h.png",  frontN:"assets/cut/tee_front_n.png",
+    back:"assets/cut/tee_back.png",    backH:"assets/cut/tee_back_h.png",    backN:"assets/cut/tee_back_n.png",  halo:0xc6a15b,
     desc:"Rotate the Trinity in real space — red, bone and royal haloed A's cracked across the back." },
   { id:"spectrum", product:"spectrum-zip",  name:"Spectrum Zip Hoodie", price:"$150",
-    front:"assets/cut/hoodie_rbw_front.png",  back:"assets/cut/hoodie_rbw_back.png",  halo:0xc6a15b,
+    front:"assets/cut/hoodie_rbw_front.png",  frontH:"assets/cut/hoodie_rbw_front_h.png",  frontN:"assets/cut/hoodie_rbw_front_n.png",
+    back:"assets/cut/hoodie_rbw_back.png",     backH:"assets/cut/hoodie_rbw_back_h.png",    backN:"assets/cut/hoodie_rbw_back_n.png",  halo:0xc6a15b,
     desc:"Six haloed A's in full spectrum, stacked down the back of a distressed 480gsm zip." },
   { id:"phantom",  product:"phantom-zip",   name:"Phantom Zip Hoodie",  price:"$145",
-    front:"assets/cut/hoodie_wash_front.png", back:"assets/cut/hoodie_wash_back.png", halo:0x8f8f96,
+    front:"assets/cut/hoodie_wash_front.png", frontH:"assets/cut/hoodie_wash_front_h.png", frontN:"assets/cut/hoodie_wash_front_n.png",
+    back:"assets/cut/hoodie_wash_back.png",    backH:"assets/cut/hoodie_wash_back_h.png",   backN:"assets/cut/hoodie_wash_back_n.png",  halo:0x8f8f96,
     desc:"Washed-black on washed-black. The Phantom moves unseen — tonal haloed A's throughout." },
 ];
 
@@ -38,7 +40,7 @@ function boot(){
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
-  camera.position.set(1.7, 0.25, 8.7);   // start on a 3/4 angle
+  camera.position.set(0, 0.15, 8.7);   // head-on; the garment itself yaws
 
   // soft studio environment for subtle material sheen
   const pmrem = new THREE.PMREMGenerator(renderer);
@@ -75,61 +77,89 @@ function boot(){
   /* ---------- garment: two curved planes (front/back) ---------- */
   const loader = new THREE.TextureLoader();
   const garmentGroup = new THREE.Group(); root.add(garmentGroup);
-  let frontMesh=null, backMesh=null, loadToken=0;
+  let frontMesh=null, backMesh=null, loadToken=0, showBack=false;
 
-  function bentPlane(ratio){
-    const h = 3.8, w = h*ratio;
-    const g = new THREE.PlaneGeometry(w, h, 40, 40);
-    const pos = g.attributes.position;
-    for(let i=0;i<pos.count;i++){
-      const x = pos.getX(i), y = pos.getY(i);
-      const nx = x/(w/2);                       // -1..1
-      const z = Math.cos(nx*Math.PI*0.5)*0.42   // horizontal barrel curve
-              + Math.sin((y/h)*Math.PI)*0.05;   // slight vertical drape
-      pos.setZ(i, z);
-    }
-    g.computeVertexNormals();
-    return g;
+  const PUFF = 0.66;   // how far the garment inflates off the mid-plane
+  function garmentPlane(ratio){
+    const h = 3.7, w = h*ratio;
+    // flat base; the displacement map provides all the volume, and a flat
+    // rim (height 0) means the front and back shells meet exactly at z=0.
+    const g = new THREE.PlaneGeometry(w, h, 220, 220);
+    return g;   // normals are +Z; displacement pushes straight out, back mesh mirrors it
   }
-  function makeMat(tex, flip){
-    tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
-    if(flip){ tex.wrapS = THREE.RepeatWrapping; tex.repeat.x = -1; }
-    return new THREE.MeshStandardMaterial({ map:tex, transparent:true, alphaTest:0.42, roughness:0.92, metalness:0.0, side:THREE.FrontSide });
+  // front and back share ONE geometry: front bulges +Z (FrontSide), back bulges
+  // -Z (BackSide, negative displacement) so both have the identical outline.
+  function makeMat(color, height, normal, back){
+    color.colorSpace = THREE.SRGBColorSpace; color.anisotropy = 8;
+    if(back){ [color, height, normal].forEach(t=>{ t.wrapS = THREE.RepeatWrapping; t.repeat.x = -1; }); }
+    return new THREE.MeshStandardMaterial({
+      map: color, displacementMap: height, displacementScale: back ? -PUFF : PUFF,
+      normalMap: normal, normalScale: new THREE.Vector2(back?-1.15:1.15, 1.15),
+      roughness:0.96, metalness:0.0, side: back ? THREE.BackSide : THREE.FrontSide
+    });
+  }
+
+  // keep only the triangles that fall on the garment (drop the rest of the rectangle),
+  // so the edge is real geometry instead of an aliased alpha-clip comb
+  function trimToSilhouette(geo, img){
+    const cv=document.createElement("canvas"); cv.width=img.width; cv.height=img.height;
+    const cx=cv.getContext("2d"); cx.drawImage(img,0,0);
+    const d=cx.getImageData(0,0,img.width,img.height).data;
+    const uv=geo.attributes.uv, n=geo.attributes.position.count;
+    const inside=new Uint8Array(n);
+    for(let i=0;i<n;i++){
+      const px=Math.min(img.width-1, Math.max(0, Math.round(uv.getX(i)*(img.width-1))));
+      const py=Math.min(img.height-1,Math.max(0, Math.round((1-uv.getY(i))*(img.height-1))));
+      inside[i]= d[(py*img.width+px)*4+3] > 24 ? 1 : 0;   // alpha channel = silhouette
+    }
+    const idx=geo.index.array, keep=[];
+    for(let f=0;f<idx.length;f+=3){
+      const a=idx[f],b=idx[f+1],c=idx[f+2];
+      if(inside[a]&&inside[b]&&inside[c]) keep.push(a,b,c);   // fully-inside faces = crisp edge, no smear
+    }
+    geo.setIndex(keep);
   }
 
   function loadGarment(g){
     const token = ++loadToken;      // guards against overlapping switches
-    let f, bk, done=0;
-    const two=()=>{ if(++done<2 || token!==loadToken) return;
-      const ratio = (f.image && f.image.width/f.image.height) || 0.8;
-      const geo = bentPlane(ratio);
+    const t = {}; let done = 0; const need = 6;
+    const ready = ()=>{ if(++done < need || token !== loadToken) return;
+      const ratio = (t.cf.image && t.cf.image.width/t.cf.image.height) || 0.8;
+      const geo = garmentPlane(ratio);
+      trimToSilhouette(geo, t.cf.image);     // cut the mesh down to the garment outline
       if(frontMesh) garmentGroup.remove(frontMesh, backMesh);
-      frontMesh = new THREE.Mesh(geo, makeMat(f,false));
-      frontMesh.position.z = 0.03;
-      backMesh  = new THREE.Mesh(geo.clone(), makeMat(bk,true));
-      backMesh.rotation.y = Math.PI; backMesh.position.z = -0.03;
+      frontMesh = new THREE.Mesh(geo, makeMat(t.cf, t.hf, t.nf, false));  // same geo, bulges +Z
+      backMesh  = new THREE.Mesh(geo, makeMat(t.cb, t.hb, t.nb, true));   // same geo, bulges -Z (BackSide)
       garmentGroup.add(frontMesh, backMesh);
       haloMat.color.setHex(g.halo); haloMat.emissive.setHex(g.halo);
       haloLight.color.setHex(g.halo); glow.material.color.setHex(g.halo);
       garmentGroup.scale.setScalar(0.6);
       loading.classList.add("hide");
     };
-    f = loader.load(g.front, two); bk = loader.load(g.back, two);
+    const F = showBack ? {c:g.back, h:g.backH, n:g.backN} : {c:g.front, h:g.frontH, n:g.frontN};
+    const B = showBack ? {c:g.front,h:g.frontH,n:g.frontN} : {c:g.back, h:g.backH, n:g.backN};
+    t.cf = loader.load(F.c, ready); t.cb = loader.load(B.c, ready);
+    t.hf = loader.load(F.h, ready); t.hb = loader.load(B.h, ready);
+    t.nf = loader.load(F.n, ready); t.nb = loader.load(B.n, ready);
   }
 
   let active = 0;
 
-  /* ---------- controls ---------- */
-  const controls = new OrbitControls(camera, renderer.domElement);
-  controls.enablePan = false; controls.enableZoom = false;
-  controls.enableDamping = true; controls.dampingFactor = 0.07;
-  controls.autoRotate = true; controls.autoRotateSpeed = -1.4;
-  controls.minPolarAngle = Math.PI*0.32; controls.maxPolarAngle = Math.PI*0.68;
-  controls.rotateSpeed = 0.75;
-  let spin = true;
-  controls.addEventListener("start", ()=>{ controls.autoRotate=false; hintEl.classList.add("hide"); });
-  controls.addEventListener("end",   ()=>{ clearTimeout(idle); idle=setTimeout(()=>{ if(spin) controls.autoRotate=true; }, 2600); });
-  let idle;
+  /* ---------- interaction: subtle live-parallax rotate + flip-reveal ---------- */
+  const LIMIT = 0.30;                 // gentle yaw each side (~17°) — always in the clean zone
+  let dragYaw = 0, dragPitch = 0, idleT = 3, dragging = false, lastX = 0, lastY = 0;
+  const dom = renderer.domElement;
+  const getp = e => e.touches ? e.touches[0] : e;
+  dom.addEventListener("pointerdown", e=>{ dragging=true; hintEl.classList.add("hide"); const p=getp(e); lastX=p.clientX; lastY=p.clientY; });
+  addEventListener("pointermove", e=>{ if(!dragging) return; const p=getp(e);
+    dragYaw   = Math.max(-LIMIT, Math.min(LIMIT, dragYaw + (p.clientX-lastX)*0.005));
+    dragPitch = Math.max(-0.20, Math.min(0.20, dragPitch + (p.clientY-lastY)*0.003));
+    lastX=p.clientX; lastY=p.clientY; idleT=0; });
+  addEventListener("pointerup", ()=>{ dragging=false; });
+  // flip = clean texture-swap reveal (never spins through the thin edge-on profile)
+  function flip(){ showBack = !showBack; dragYaw = 0; loadGarment(GARMENTS[active]);
+    document.getElementById("atelierBadge").textContent = (showBack?"BACK · ":"") + GARMENTS[active].id.toUpperCase();
+    window.Ascension?.toast(showBack ? "Viewing the back" : "Viewing the front"); }
 
   /* ---------- resize ---------- */
   function resize(){ const w=stage.clientWidth, h=stage.clientHeight;
@@ -148,7 +178,11 @@ function boot(){
     halo.position.y = 2.55 + Math.sin(t*1.1)*0.06;
     glow.material.opacity = 0.42 + Math.sin(t*1.6)*0.08;
     if(garmentGroup.scale.x < 1){ garmentGroup.scale.addScalar(0.02); if(garmentGroup.scale.x>1) garmentGroup.scale.setScalar(1); }
-    controls.update();
+    idleT += 1/60;
+    if(!dragging && idleT>2.2){ dragYaw += -dragYaw*0.02; dragPitch += -dragPitch*0.02; }
+    const rock = (!dragging && idleT>1.8) ? Math.sin(t*0.5)*0.22 : 0;   // gentle live-3D sway
+    garmentGroup.rotation.y = dragYaw + rock;
+    garmentGroup.rotation.x = dragPitch + Math.sin(t*0.4)*0.015;
     renderer.render(scene,camera);
   })();
 
@@ -166,10 +200,7 @@ function boot(){
     loadGarment(g);
   }
   sw.addEventListener("click", e=>{ const b=e.target.closest("[data-g]"); if(!b) return; setGarment(+b.dataset.g); });
-  document.getElementById("atelierSpin").addEventListener("click", ()=>{
-    spin=!spin; controls.autoRotate=spin;
-    window.Ascension?.toast(spin? "Auto-rotate on":"Auto-rotate paused");
-  });
+  document.getElementById("atelierSpin").addEventListener("click", flip);
   document.getElementById("atelierAdd").addEventListener("click", ()=>{
     const g=GARMENTS[active];
     if(window.Ascension?.openModal) window.Ascension.openModal(g.product);
