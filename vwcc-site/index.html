@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VWCC | Vancouver Westside Collectibles Convention</title>
+<meta name="description" content="Vancouver's biggest free admission card show. 170+ vendors of Pokémon, sports cards, TCGs and collectibles. Next show Sunday, December 6 at Aria Convention Centre, Surrey.">
+<meta name="theme-color" content="#f6f6f4">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VWCC">
+<meta property="og:title" content="VWCC | Vancouver's biggest free admission card show">
+<meta property="og:description" content="Vancouver's biggest free admission card show. 170+ vendors of Pokémon, sports cards, TCGs and collectibles. Next show Sunday, December 6 at Aria Convention Centre, Surrey.">
+<meta property="og:image" content="https://static.wixstatic.com/media/c989fb_928bc11408bc4ad19f498d9a17671d7f~mv2.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="google-site-verification" content="wadGN4Yz5jUaDZibiRTCno-AcWDsXIgXFiCg1ZdTJkA">
+<link rel="icon" type="image/png" href="https://static.wixstatic.com/media/c989fb_090717b56ce84995b19823785968562f~mv2.png">
+<link rel="apple-touch-icon" href="https://static.wixstatic.com/media/c989fb_7398b6fc184f4f2fbfa592231331eb93~mv2.png">
+<meta name="apple-mobile-web-app-title" content="VWCC">
+<style>html{-webkit-text-size-adjust:100%;text-size-adjust:100%}:root{padding-top:env(safe-area-inset-top,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800;900&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: full-colour photo hero, bento info grid, horizontal snap gallery. Tight heavy grotesk on a bright off-white ground, black logo badge, one solid brand gold. Single committed light look. */
+:root {
+  --bg: #f6f6f4;
+  --card: #ffffff;
+  --card-2: #efeeea;
+  --line: #e4e2dc;
+  --gold: #e6b84a;
+  --gold-text: #946a0c;
+  --gold-ink: #1a1405;
+  --white: #141414;
+  --grey: #62615c;
+  --display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body: "Figtree", "Helvetica Neue", Arial, sans-serif;
+  --r: 20px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--white); font: 400 17px/1.55 var(--body); }
+a { color: inherit; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: 20px; }
+
+.preview-bar { background: var(--gold); color: var(--gold-ink); font: 600 13px/1.4 var(--body); text-align: center; padding: 7px 16px; }
+
+nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; padding-block: 12px; }
+nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.pill-nav { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,.82); box-shadow: 0 4px 24px rgba(0,0,0,.08); backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4); border: 1px solid rgba(0,0,0,.06); border-radius: 999px; padding: 6px; }
+.pill-nav a { text-decoration: none; font: 600 14px/1 var(--body); color: var(--grey); padding: 10px 16px; border-radius: 999px; transition: color .2s, background .2s; }
+.pill-nav a:hover, .pill-nav a:focus-visible { color: var(--white); background: rgba(0,0,0,.05); }
+.brand img { width: 52px; height: 52px; border-radius: 14px; display: block; }
+.cta { text-decoration: none; font: 700 15px/1 var(--body); background: var(--gold); color: var(--gold-ink); padding: 14px 20px; border-radius: 999px; transition: transform .15s; white-space: nowrap; }
+.cta:hover { transform: translateY(-2px); }
+.cta:focus-visible, .btn:focus-visible { outline: 3px solid var(--white); outline-offset: 3px; }
+
+.hero { color: #fff; margin-top: -76px; position: relative; overflow: hidden; border-radius: 0 0 32px 32px; }
+.hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.15) 35%, rgba(0,0,0,.85) 100%); }
+.hero .wrap { position: relative; z-index: 1; padding-block: 200px 56px; display: flex; flex-direction: column; gap: 22px; }
+.tag { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font: 600 14px/1 var(--body); background: rgba(255,255,255,.12); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.18); padding: 9px 14px; border-radius: 999px; }
+.tag i { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 0 4px rgba(74,222,128,.25); }
+h1 { font: 900 clamp(44px, 7.6vw, 112px)/.92 var(--display); letter-spacing: -.045em; margin: 0; max-width: 14ch; text-wrap: balance; }
+h1 span { color: var(--gold); }
+.hero-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+.hero-row p { margin: 0; max-width: 44ch; font-size: 19px; color: rgba(255,255,255,.88); }
+.btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 700 16px/1 var(--body); padding: 17px 24px; border-radius: 999px; transition: transform .15s, background .2s; }
+.btn:hover { transform: translateY(-2px); }
+.btn.gold { background: var(--gold); color: var(--gold-ink); }
+.btn.glass { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3); color: #fff; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.btn.glass:hover { background: rgba(255,255,255,.2); }
+.btn.dark { background: var(--white); color: #000; }
+.arrow { transition: transform .2s; }
+.btn:hover .arrow { transform: translateX(4px); }
+
+section { padding-block: 96px 0; }
+h2 { font: 800 clamp(36px, 5.5vw, 68px)/.95 var(--display); letter-spacing: -.04em; margin: 0 0 16px; text-wrap: balance; }
+.kicker { font: 700 14px/1 var(--body); color: var(--gold-text); margin-bottom: 14px; }
+.sub { color: var(--grey); font-size: 19px; max-width: 52ch; margin: 0 0 40px; }
+
+.bento { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 14px; }
+.tile { background: var(--card); border: 1px solid var(--line); box-shadow: 0 1px 2px rgba(0,0,0,.04); border-radius: var(--r); padding: 28px; min-width: 0; position: relative; overflow: hidden; }
+.tile .k { font: 600 14px/1 var(--body); color: var(--grey); }
+.tile .big { font: 900 clamp(44px, 6vw, 80px)/.9 var(--display); letter-spacing: -.045em; margin-top: 14px; }
+.tile .big small { font: 700 20px/1 var(--display); letter-spacing: -.02em; color: var(--grey); margin-left: 4px; }
+.tile p { color: var(--grey); margin: 12px 0 0; }
+.t-count { grid-column: span 7; background: var(--gold); color: var(--gold-ink); border: 0; }
+.t-count .k, .t-count p { color: rgba(26,20,5,.7); }
+.t-vendors { grid-column: span 5; }
+.t-where { grid-column: span 5; }
+.t-free { grid-column: span 3; }
+.t-hours { grid-column: span 4; }
+.count { display: flex; gap: 22px; margin-top: 16px; flex-wrap: wrap; }
+.count div { font: 900 clamp(44px, 6vw, 80px)/.9 var(--display); letter-spacing: -.045em; font-variant-numeric: tabular-nums; }
+.count small { display: block; font: 700 14px/1 var(--body); letter-spacing: 0; margin-top: 8px; opacity: .7; }
+.t-where h3 { font: 800 30px/1.05 var(--display); letter-spacing: -.03em; margin: 14px 0 6px; }
+.t-where a { display: inline-flex; margin-top: 18px; font-weight: 700; color: var(--gold-text); text-decoration: none; gap: 8px; }
+
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.cat { color: #fff; position: relative; border-radius: var(--r); overflow: hidden; aspect-ratio: 3 / 4; background: var(--card); max-width: 100%; }
+.cat img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.cat::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.85)); }
+.cat:hover img { transform: scale(1.06); }
+.cat div { position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 1; }
+.cat h3 { font: 800 26px/1 var(--display); letter-spacing: -.03em; margin: 0 0 6px; }
+.cat p { margin: 0; font-size: 15px; color: rgba(255,255,255,.8); }
+
+.gal-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
+.gal-ctrl { display: flex; gap: 8px; margin-bottom: 40px; }
+.gal-ctrl button { width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--line); background: var(--card); color: var(--white); font-size: 20px; cursor: pointer; transition: background .2s, border-color .2s; }
+.gal-ctrl button:hover { background: var(--gold); color: var(--gold-ink); border-color: var(--gold); }
+.strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(260px, 30%); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+.strip::-webkit-scrollbar { display: none; }
+.strip button { scroll-snap-align: start; padding: 0; border: 0; border-radius: var(--r); overflow: hidden; aspect-ratio: 4 / 5; cursor: zoom-in; background: var(--card); }
+.strip img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.strip button:hover img { transform: scale(1.05); }
+.strip button:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
+
+.vendor { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 14px; }
+.vendor .tile { padding: 40px; }
+.vendor .photo { padding: 0; min-height: 360px; }
+.vendor .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.price { display: flex; align-items: baseline; gap: 10px; margin: 22px 0 6px; }
+.price b { font: 900 64px/1 var(--display); letter-spacing: -.045em; color: var(--gold-text); }
+.price span { color: var(--grey); font-weight: 600; }
+.vendor ul { list-style: none; padding: 0; margin: 20px 0 30px; display: grid; gap: 10px; }
+.vendor li { display: flex; gap: 10px; color: var(--white); }
+.vendor li::before { content: "✓"; color: var(--gold-text); font-weight: 700; }
+
+.lb { color: #fff; position: fixed; inset: 0; z-index: 40; background: rgba(0,0,0,.94); backdrop-filter: blur(6px); display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 12px; padding: calc(16px + env(safe-area-inset-top, 0px)) 16px calc(16px + env(safe-area-inset-bottom, 0px)); }
+.lb-top, .lb-bot { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.lb-top span { font-weight: 600; color: #bdbdbd; }
+.lb img { max-width: 100%; max-height: 100%; max-height: calc(100vh - 170px); max-height: calc(100dvh - 170px); object-fit: contain; justify-self: center; align-self: center; border-radius: 14px; }
+.lb button { font: 700 15px/1 var(--body); border: 0; border-radius: 999px; padding: 13px 20px; cursor: pointer; background: rgba(255,255,255,.14); color: #fff); }
+.lb button:hover { background: var(--gold); color: var(--gold-ink); }
+
+footer { margin-top: 96px; border-top: 1px solid var(--line); padding-block: 40px 56px; }
+footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; color: var(--grey); font-size: 15px; }
+footer img { width: 56px; height: 56px; border-radius: 14px; }
+
+.reveal { transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.pre { transform: translateY(24px); }
+
+@media (max-width: 960px) {
+  .pill-nav { display: none; }
+  .t-count, .t-vendors, .t-where, .t-free, .t-hours { grid-column: span 12; }
+  .t-free, .t-hours { grid-column: span 6; }
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .strip { grid-auto-columns: minmax(240px, 70%); }
+  .vendor { grid-template-columns: minmax(0, 1fr); }
+  .vendor .tile { padding: 28px; }
+}
+@media (max-width: 520px) {
+  .t-free, .t-hours { grid-column: span 12; }
+  .cards { grid-template-columns: minmax(0, 1fr); }
+  .cat { aspect-ratio: 4 / 3; }
+  .hero .wrap { padding-block: 160px 40px; }
+  .cta { padding: 12px 16px; font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  .reveal.pre { transform: none; }
+  html { scroll-behavior: auto; }
+}
+
+.fm { position: fixed; inset: 0; z-index: 50; background: rgba(20,20,20,.45); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; align-items: flex-start; justify-content: center; overflow-y: auto; padding: calc(24px + env(safe-area-inset-top, 0px)) 16px calc(24px + env(safe-area-inset-bottom, 0px)); }
+.fm-card { width: 100%; max-width: 620px; box-shadow: 0 30px 80px rgba(0,0,0,.25); background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 32px; }
+.fm-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 8px; }
+.fm-head h2 { font-size: clamp(30px, 5vw, 44px); margin: 0; }
+.fm-x { flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--card-2); color: var(--white); font-size: 20px; cursor: pointer; }
+.fm-x:hover { background: var(--gold); color: var(--gold-ink); }
+.fm-note { color: var(--grey); margin: 0 0 24px; }
+.fm form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.fld { display: grid; gap: 6px; min-width: 0; }
+.fld.full { grid-column: 1 / -1; }
+.fld label, .fld legend { font: 600 14px/1.3 var(--body); color: var(--white); padding: 0; }
+.fld .hint { font-size: 13px; color: var(--grey); }
+.fld input, .fld textarea { width: 100%; font: 500 16px/1.4 var(--body); color: var(--white); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 13px 14px; transition: border-color .2s, box-shadow .2s; }
+.fld textarea { min-height: 96px; resize: vertical; }
+.fld input:focus, .fld textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px rgba(230,184,74,.18); }
+.fld input:user-invalid { border-color: #f87171; }
+fieldset.fld { border: 0; margin: 0; padding: 0; }
+.radios { display: flex; gap: 10px; }
+.radios label { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px; cursor: pointer; font-weight: 600; }
+.radios input { accent-color: var(--gold); width: auto; }
+.radios label:has(input:checked) { border-color: var(--gold); background: rgba(230,184,74,.14); }
+.est { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: 12px; background: var(--bg); border: 1px dashed var(--line); border-radius: 12px; padding: 14px 16px; color: var(--grey); font-weight: 600; }
+.est b { font: 800 24px/1 var(--display); color: var(--gold-text); letter-spacing: -.02em; }
+.fm .btn { grid-column: 1 / -1; justify-content: center; border: 0; cursor: pointer; font-family: var(--body); }
+.fm-done { text-align: center; padding: 24px 0 8px; }
+.fm-done .tick { width: 64px; height: 64px; border-radius: 50%; background: var(--gold); color: var(--gold-ink); display: grid; place-items: center; font-size: 30px; font-weight: 800; margin: 0 auto 18px; }
+.fm-done p { color: var(--grey); margin: 8px auto 24px; max-width: 40ch; }
+@media (max-width: 520px) { .fm form { grid-template-columns: minmax(0, 1fr); } .fm-card { padding: 22px; } }
+
+/* multi-page */
+.menu-btn { display: none; font: 700 14px/1 var(--body); background: var(--card); color: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 13px 16px; cursor: pointer; }
+.pill-nav a[aria-current="page"] { color: var(--white); background: rgba(0,0,0,.06); }
+.page-head { padding-block: 40px 8px; }
+.page-head h1 { color: var(--white); font-size: clamp(44px, 7vw, 96px); max-width: 18ch; }
+.page-head p { color: var(--grey); font-size: 19px; max-width: 54ch; margin: 18px 0 0; }
+.crumb { font: 600 14px/1 var(--body); color: var(--gold-text); text-decoration: none; display: inline-block; margin-bottom: 20px; }
+.ev { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.ev img { width: 100%; height: 100%; object-fit: cover; min-height: 280px; display: block; }
+.ev-body { padding: 32px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.ev-badge { align-self: flex-start; font: 700 13px/1 var(--body); padding: 8px 12px; border-radius: 999px; background: var(--gold); color: var(--gold-ink); }
+.ev-badge.past { background: var(--card-2); color: var(--grey); }
+.ev h3 { font: 800 clamp(28px, 3.4vw, 40px)/1 var(--display); letter-spacing: -.035em; margin: 6px 0 0; }
+.ev .meta { color: var(--grey); }
+.ev .btns { margin-top: 12px; }
+.past-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.past-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 26px; display: grid; gap: 8px; min-width: 0; }
+.past-card .when { font: 700 14px/1 var(--body); color: var(--gold-text); }
+.past-card h3 { font: 800 26px/1.05 var(--display); letter-spacing: -.03em; margin: 0; }
+.past-card p { color: var(--grey); margin: 0; }
+.contact { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+.contact .tile { padding: 32px; }
+.contact form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.contact .btn { grid-column: 1 / -1; justify-content: center; border: 0; cursor: pointer; font-family: var(--body); }
+.side { display: grid; gap: 14px; }
+.side a.tile { text-decoration: none; display: block; transition: transform .15s, border-color .2s; }
+.side a.tile:hover { transform: translateY(-2px); border-color: var(--gold); }
+.side h3 { font: 800 24px/1.1 var(--display); letter-spacing: -.03em; margin: 10px 0 4px; }
+.side .go { color: var(--gold-text); font-weight: 700; margin-top: 10px; display: inline-block; }
+.todo { display: inline-block; background: #fff4d6; color: #7a5600; border: 1px dashed #d9a92e; border-radius: 8px; padding: 2px 8px; font-weight: 600; font-size: .9em; }
+.doc { max-width: 70ch; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: clamp(24px, 4vw, 48px); }
+.doc h2 { font-size: 28px; letter-spacing: -.02em; margin: 32px 0 10px; }
+.doc h2:first-child { margin-top: 0; }
+.doc p, .doc li { color: #3a3a37; }
+.doc ul { padding-left: 20px; display: grid; gap: 6px; }
+.doc a { color: var(--gold-text); }
+.doc .updated { color: var(--grey); font-size: 14px; margin-top: 28px; }
+.sent { grid-column: 1 / -1; background: #f0fdf4; border: 1px solid #bbf7d0; color: #14532d; border-radius: 12px; padding: 14px 16px; font-weight: 600; }
+.foot-links { display: flex; gap: 8px 22px; flex-wrap: wrap; }
+.foot-links a { color: var(--grey); text-decoration: none; }
+.foot-links a:hover { color: var(--white); }
+footer .wrap { align-items: flex-start; }
+.foot-tag { color: var(--white); font: 800 20px/1.2 var(--display); letter-spacing: -.02em; margin: 14px 0 4px; }
+@media (max-width: 960px) {
+  .menu-btn { display: inline-block; }
+  .pill-nav.open { display: flex; flex-direction: column; align-items: stretch; position: absolute; top: 72px; left: 20px; right: 20px; border-radius: 20px; padding: 10px; background: rgba(255,255,255,.97); }
+  .pill-nav.open a { padding: 14px 16px; font-size: 16px; }
+  nav .wrap { position: relative; }
+  .ev, .contact { grid-template-columns: minmax(0, 1fr); }
+  .past-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 520px) { .contact form { grid-template-columns: minmax(0, 1fr); } }
+.soon-badge { display: inline-flex; align-items: center; gap: 8px; font: 700 13px/1 var(--body); background: var(--card-2); color: var(--white); border: 1px solid var(--line); padding: 9px 13px; border-radius: 999px; margin-bottom: 16px; }
+.soon-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+.btn.is-soon { background: var(--card-2); color: var(--white); }
+.soon-note { color: var(--grey); margin: 16px 0 0; max-width: 46ch; font-size: 15px; }
+.soon-note a { color: var(--gold-text); font-weight: 700; }
+.btn, .cta, .pill-nav a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+@media (hover: none) { .cat:hover img, .strip button:hover img { transform: none; } .row:hover { padding-left: 0; } .btn:hover, .cta:hover { transform: none; } }
+.strip { -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+.fm { -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+</style>
+
+
+<nav>
+  </head>
+<body>
+<div class="wrap">
+    <a class="brand" href="#home" aria-label="VWCC home"><img src="https://static.wixstatic.com/media/c989fb_3b2de3d2d3374492adef2e3b30119b4d~mv2.png" alt="VWCC"></a>
+    <div class="pill-nav" id="menu">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#events" data-nav="events">Events</a>
+      <a href="#gallery" data-nav="gallery">Gallery</a>
+      <a href="#vendors" data-nav="vendors">Vendors</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+    </div>
+    <div style="display:flex;gap:8px"><button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menu</button><a class="cta" href="#apply" data-open="Book a table" data-closed="Vendor apps coming soon">Book a table</a></div>
+  </div>
+</nav>
+
+<main data-page="home">
+<header class="hero" id="top">
+  <img src="https://static.wixstatic.com/media/c989fb_928bc11408bc4ad19f498d9a17671d7f~mv2.jpg" alt="Crowds browsing vendor tables at a VWCC card show">
+  <div class="wrap">
+    <span class="tag"><i></i>Next show · Sunday, Dec 6</span>
+    <h1>Vancouver's <span>biggest</span> free admission card show.</h1>
+    <div class="hero-row">
+      <p>170+ vendors. Pokémon, sports cards, every major TCG and collectibles. Free entry, with giveaways every hour.</p>
+      <div class="btns">
+        <a class="btn gold" href="#info">Show info <span class="arrow">→</span></a>
+        <a class="btn glass" id="calBtn" href="#" target="_blank" rel="noopener">Add to calendar</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="info">
+  <div class="wrap">
+    <div class="bento">
+      <div class="tile t-count reveal">
+        <div class="k">Doors open in</div>
+        <div class="count">
+          <div><span id="cd-d">--</span><small>days</small></div>
+          <div><span id="cd-h">--</span><small>hours</small></div>
+          <div><span id="cd-m">--</span><small>minutes</small></div>
+        </div>
+      </div>
+      <div class="tile t-vendors reveal">
+        <div class="k">On the floor</div>
+        <div class="big">170+<small>vendors</small></div>
+        <p>Our biggest show yet.</p>
+      </div>
+      <div class="tile t-where reveal">
+        <div class="k">Where</div>
+        <h3>Aria Convention Centre</h3>
+        <p>12350 Pattullo Pl, Surrey, BC</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=12350+Pattullo+Pl+Surrey+BC" target="_blank" rel="noopener">Get directions <span>→</span></a>
+      </div>
+      <div class="tile t-free reveal">
+        <div class="k">Entry</div>
+        <div class="big">Free</div>
+        <p>Plus hourly giveaways.</p>
+      </div>
+      <div class="tile t-hours reveal">
+        <div class="k">Sunday, Dec 6</div>
+        <div class="big">11–6</div>
+        <p>11 AM to 6 PM.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="floor">
+  <div class="wrap">
+    <div class="kicker">What's there</div>
+    <h2>Buy, sell and trade.</h2>
+    <p class="sub">Bring your binder. Here's what you'll find on the floor.</p>
+    <div class="cards">
+      <div class="cat reveal"><img src="https://static.wixstatic.com/media/c989fb_de91466c5977404685777f8919a357ba~mv2.jpg" alt=""><div><h3>Pokémon</h3><p>Singles, sealed, vintage and slabs.</p></div></div>
+      <div class="cat reveal"><img src="https://static.wixstatic.com/media/c989fb_7b055b546a8043e5aee21187adf1438f~mv2.jpg" alt=""><div><h3>Sports Cards</h3><p>Topps, Upper Deck and more.</p></div></div>
+      <div class="cat reveal"><img src="https://static.wixstatic.com/media/c989fb_7d75dd5e82794344aaa4dc3a3541a9d0~mv2.jpg" alt=""><div><h3>TCGs</h3><p>One Piece, Lorcana, Yu-Gi-Oh!, Magic.</p></div></div>
+      <div class="cat reveal"><img src="https://static.wixstatic.com/media/c989fb_9173e6a1baad4657a31f01c6ff3971d5~mv2.jpg" alt=""><div><h3>Grading &amp; More</h3><p>Grading booths, Funko and collectibles.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <div class="gal-head">
+      <div>
+        <div class="kicker">Gallery</div>
+        <h2>From the floor.</h2>
+        <p class="sub" style="margin-bottom:24px">Swipe through, or tap a photo to open it full screen.</p>
+      </div>
+      <div class="gal-ctrl">
+        <button type="button" id="gPrev" aria-label="Scroll photos left">←</button>
+        <button type="button" id="gNext" aria-label="Scroll photos right">→</button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="strip" id="strip">
+      <button type="button"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/c989fb_557709f4fce9491d8b0da314dbc865ec~mv2.jpg" alt="VWCC card show, photo 1"></button>
+      <button type="button"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/c989fb_ca3d63219ea34a66b93fc4e63b4a4cfa~mv2.jpg" alt="VWCC card show, photo 2"></button>
+      <button type="button"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/c989fb_a08c143044b14c798a6a59a0092ca6a5~mv2.jpg" alt="VWCC card show, photo 3"></button>
+      <button type="button"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/c989fb_ff014d77b16540bb8b46494b553f2405~mv2.jpg" alt="VWCC card show, photo 4"></button>
+      <button type="button"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/c989fb_1a7530432a70452f8afcf3376702bdbc~mv2.jpg" alt="VWCC card show, photo 5"></button>
+      <button type="button"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/c989fb_a6ee3d4abb8447749155237d45de6271~mv2.jpg" alt="VWCC card show, photo 6"></button>
+      <button type="button"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/c989fb_7fa5db3769214a259c9a64ae9dcaf22e~mv2.jpg" alt="VWCC card show, photo 7"></button>
+      <button type="button"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/c989fb_8455dc5964a24834aaeeace1b43b43cc~mv2.jpg" alt="VWCC card show, photo 8"></button>
+      <button type="button"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/c989fb_3b4c4eb234c64a9a8c9653d6a5598c0c~mv2.jpg" alt="VWCC card show, photo 9"></button>
+      <button type="button"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/c989fb_74af264ea6554a0ca15d105fe68eb560~mv2.jpg" alt="VWCC card show, photo 10"></button>
+      <button type="button"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/c989fb_c0dfb45048f948f6ac7ac04cafbd6184~mv2.jpg" alt="VWCC card show, photo 11"></button>
+      <button type="button"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/c989fb_df247c90b1a74c4e8fb83608f74112a1~mv2.jpg" alt="VWCC card show, photo 12"></button>
+      <button type="button"><img loading="lazy" decoding="async" src="https://static.wixstatic.com/media/c989fb_985efdf8152a4579a54736ba230e50cf~mv2.jpg" alt="VWCC card show, photo 13"></button>
+    </div>
+  </div>
+</section>
+
+<section id="vendors">
+  <div class="wrap vendor">
+    <div class="tile">
+      <div class="kicker">For vendors</div>
+      <span class="soon-badge" data-closed-only>Applications not open yet</span>
+      <h2>Get a table on Dec 6.</h2>
+      <div class="price"><b>$115</b><span>per table</span></div>
+      <p style="margin:0;color:var(--grey)">Discounts on 5 or more tables.</p>
+      <ul>
+        <li>170+ vendor floor with free entry for buyers</li>
+        <li>Vendor spotlights available on request</li>
+        <li>Quick application, about two minutes</li>
+      </ul>
+      <a class="btn gold" href="#apply" data-open="Apply for a table →" data-closed="Applications opening soon">Apply for a table <span class="arrow">→</span></a>
+      <p class="soon-note" data-closed-only>Vendor applications for December 6 haven't been released yet. Follow <a href="https://www.instagram.com/vancouverwestsidecardshow/" target="_blank" rel="noopener">@vancouverwestsidecardshow</a> on Instagram to hear the moment they open.</p>
+    </div>
+    <div class="tile photo"><img src="https://static.wixstatic.com/media/c989fb_eff564eaa4994bb3913556ffe58d84b0~mv2.jpg" alt="Vendors at the VWCC banner"></div>
+  </div>
+</section>
+
+</main>
+
+<main data-page="events" hidden>
+  <section class="page-head" style="padding-top:40px">
+    <div class="wrap">
+      <div class="kicker">Events</div>
+      <h1>Upcoming &amp; past shows.</h1>
+      <p>Free admission at every show. Built by collectors, powered by the community.</p>
+    </div>
+  </section>
+  <section style="padding-top:48px">
+    <div class="wrap">
+      <div class="ev">
+        <img src="https://static.wixstatic.com/media/c989fb_557709f4fce9491d8b0da314dbc865ec~mv2.jpg" alt="Crowd at a VWCC card show">
+        <div class="ev-body">
+          <span class="ev-badge">Next show</span>
+          <h3>VWCC at Aria Convention Centre</h3>
+          <div class="meta">Sunday, December 6, 2026 · 11 AM – 6 PM<br>12350 Pattullo Pl, Surrey, BC</div>
+          <p style="margin:6px 0 0">170+ vendors, free entry and giveaways every hour. Pokémon, sports cards, One Piece, Lorcana, Yu-Gi-Oh!, Magic and collectibles.</p>
+          <div class="btns">
+            <a class="btn gold" id="calBtn2" href="#" target="_blank" rel="noopener">Add to calendar</a>
+            <a class="btn" style="background:var(--card-2);color:var(--white)" href="https://www.google.com/maps/search/?api=1&amp;query=12350+Pattullo+Pl+Surrey+BC" target="_blank" rel="noopener">Directions</a>
+          </div>
+        </div>
+      </div>
+      <h2 style="margin-top:80px">Past shows</h2>
+      <div class="past-grid">
+        <div class="past-card"><div class="when">August 23, 2026</div><h3>Italian Cultural Centre</h3><p>3075 Slocan St, Vancouver · 120+ vendors</p></div>
+        <div class="past-card"><div class="when">February 22, 2026</div><h3>Fraserview Banquet Hall</h3><p>8240 Fraser St, Vancouver</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main data-page="contact" hidden>
+  <section class="page-head" style="padding-top:40px">
+    <div class="wrap">
+      <div class="kicker">Contact</div>
+      <h1>Get in touch.</h1>
+      <p>Questions about the show, vendor tables or partnerships? Send us a message.</p>
+    </div>
+  </section>
+  <section style="padding-top:48px">
+    <div class="wrap contact">
+      <div class="tile">
+        <form id="contactForm" novalidate>
+          <div class="fld"><label for="c-first">First name</label><input id="c-first" autocomplete="given-name" required></div>
+          <div class="fld"><label for="c-last">Last name</label><input id="c-last" autocomplete="family-name" required></div>
+          <div class="fld full"><label for="c-email">Email</label><input id="c-email" type="email" autocomplete="email" required></div>
+          <div class="fld full"><label for="c-msg">Message</label><textarea id="c-msg" required></textarea></div>
+          <button class="btn gold" type="submit">Send message <span class="arrow">→</span></button>
+          <div class="sent" id="contactSent" hidden>Your email app should open with your message ready. Just hit send. If it didn't open, email us at <a href="mailto:vancouverwcc@gmail.com">vancouverwcc@gmail.com</a>.</div>
+        </form>
+      </div>
+      <div class="side">
+        <a class="tile" href="https://www.instagram.com/vancouverwestsidecardshow/" target="_blank" rel="noopener">
+          <div class="k">Instagram</div>
+          <h3 style="word-break:break-all">@vancouverwestsidecardshow</h3>
+          <p>Show updates, vendor spotlights and giveaways.</p>
+          <span class="go">Follow us →</span>
+        </a>
+        <div class="tile">
+          <div class="k">Email</div>
+          <h3 style="word-break:break-all"><a href="mailto:vancouverwcc@gmail.com" style="color:inherit;text-decoration:none">vancouverwcc@gmail.com</a></h3>
+          <p>We usually reply within a couple of days.</p>
+        </div>
+        <a class="tile" href="#apply">
+          <div class="k">Vendors</div>
+          <h3>Book a table</h3>
+          <p>$115 per table, discounts on 5 or more.</p>
+          <span class="go" data-open="Apply now →" data-closed="Applications opening soon">Apply now →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main data-page="refund-policy" hidden>
+  <section class="page-head" style="padding-top:40px"><div class="wrap"><a class="crumb" href="#home">← Back to home</a><h1>Refund Policy</h1></div></section>
+  <section style="padding-top:40px"><div class="wrap"><div class="doc">
+    <h2>Admission</h2>
+    <p>Entry to VWCC shows is free, so there is nothing to refund for attendees.</p>
+    <h2>Vendor table refunds</h2>
+    <p>Vendors may request a refund up to two (2) weeks (14 days) before the event date. Refund requests made within 14 days of the event are not eligible for a refund.</p>
+    <p>This policy helps us finalize floor plans, staffing, and event logistics.</p>
+    <h2>How to request a refund</h2>
+    <p>Email us at <a href="mailto:vancouverwcc@gmail.com">vancouverwcc@gmail.com</a> with your vendor name, the event date, and the number of tables booked. Requests are dated by when we receive your email. Approved refunds are returned to your original payment method, normally within 10 business days.</p>
+    <h2>Transferring a table</h2>
+    <p>If you can't attend, you may ask to transfer your table to another vendor. Transfers must be approved by VWCC in advance, and the new vendor must agree to our Terms &amp; Conditions.</p>
+    <h2>No-shows</h2>
+    <p>Vendors who do not show up on the event day without cancelling at least 14 days in advance are not eligible for a refund.</p>
+    <h2>If we cancel or reschedule</h2>
+    <p>If VWCC cancels a show, vendors receive a full refund of their table fees. If a show is rescheduled, vendors may move their booking to the new date or request a full refund.</p>
+    <p>If a show must be cancelled because of events outside our control, such as severe weather, venue closures, or public health orders, we will offer a credit toward a future show or a refund, at our discretion.</p>
+    <h2>Removal from a show</h2>
+    <p>Vendors removed from a show for breaking our Terms &amp; Conditions are not eligible for a refund.</p>
+    <p class="updated">Last updated: October 8, 2026</p>
+  </div></div></section>
+</main>
+
+<main data-page="privacy-policy" hidden>
+  <section class="page-head" style="padding-top:40px"><div class="wrap"><a class="crumb" href="#home">← Back to home</a><h1>Privacy Policy</h1></div></section>
+  <section style="padding-top:40px"><div class="wrap"><div class="doc">
+    <p>Vancouver Westside Collectibles Convention ("VWCC", "we", "us") respects your privacy. This policy explains what personal information we collect through vwcc.ca and at our shows, how we use it, and your choices. We follow British Columbia's Personal Information Protection Act (PIPA) and Canada's Personal Information Protection and Electronic Documents Act (PIPEDA).</p>
+    <h2>Information we collect</h2>
+    <ul>
+      <li><b>Vendor applications:</b> your name, email, phone number, business or vendor name, social media handle, number of tables, and any notes you send us.</li>
+      <li><b>Contact messages:</b> your name, email, and message.</li>
+      <li><b>Event sign-ups:</b> your name and email if you RSVP or join our mailing list.</li>
+      <li><b>Payments:</b> table payments are processed by our payment providers. We do not store your full card details.</li>
+      <li><b>Website data:</b> our website host collects basic technical information such as your browser type, device, pages visited, and approximate location, using cookies and similar tools.</li>
+    </ul>
+    <h2>How we use it</h2>
+    <ul>
+      <li>To review vendor applications, assign tables, and send invoices and event details</li>
+      <li>To answer your questions</li>
+      <li>To send show announcements, if you've signed up for them</li>
+      <li>To run giveaways and contact winners</li>
+      <li>To keep our website working and understand how it's used</li>
+    </ul>
+    <p>We do not sell your personal information.</p>
+    <h2>Who we share it with</h2>
+    <p>We share information only with service providers who help us run VWCC, such as our website host (Wix), payment processors, and email tools, and only as needed for those services. We may also share information if required by law.</p>
+    <h2>Photos and video at our shows</h2>
+    <p>We take photos and video at our events and may post them on our website and social media. If you'd prefer not to appear, let a staff member know at the show, or email us and we'll remove a photo of you.</p>
+    <h2>Email updates</h2>
+    <p>You can unsubscribe from our emails at any time using the link in any email or by contacting us.</p>
+    <h2>How long we keep it</h2>
+    <p>We keep personal information only as long as we need it for the purposes above, or as required for tax and accounting records.</p>
+    <h2>Your rights</h2>
+    <p>You can ask to see, correct, or delete the personal information we hold about you. Email us at <a href="mailto:vancouverwcc@gmail.com">vancouverwcc@gmail.com</a> and we'll respond within 30 days.</p>
+    <h2>Cookies</h2>
+    <p>Our website uses cookies to keep it working and to measure traffic. You can block or delete cookies in your browser settings, though some parts of the site may not work properly without them.</p>
+    <h2>Changes to this policy</h2>
+    <p>We may update this policy from time to time. The latest version will always be posted on this page.</p>
+    <h2>Contact</h2>
+    <p>Questions about privacy? Email <a href="mailto:vancouverwcc@gmail.com">vancouverwcc@gmail.com</a>.</p>
+    <p class="updated">Last updated: October 8, 2026</p>
+  </div></div></section>
+</main>
+
+<main data-page="terms" hidden>
+  <section class="page-head" style="padding-top:40px"><div class="wrap"><a class="crumb" href="#home">← Back to home</a><h1>Terms &amp; Conditions</h1></div></section>
+  <section style="padding-top:40px"><div class="wrap"><div class="doc">
+    <p>These terms apply to everyone who visits vwcc.ca, attends a Vancouver Westside Collectibles Convention ("VWCC") show, or books a vendor table. By attending or booking, you agree to them.</p>
+    <h2>Attending a show</h2>
+    <ul>
+      <li>Admission is free. Entry is subject to venue capacity.</li>
+      <li>Please treat vendors, staff, and other guests with respect. Harassment, theft, threats, or disruptive behaviour will not be tolerated.</li>
+      <li>VWCC and venue staff may refuse entry or remove anyone at their discretion.</li>
+      <li>Children must be supervised by an adult at all times.</li>
+      <li>You are responsible for your own belongings. VWCC is not responsible for lost, stolen, or damaged items.</li>
+    </ul>
+    <h2>Buying, selling, and trading</h2>
+    <p>All sales and trades are made directly between attendees and vendors. VWCC is not a party to these transactions and does not guarantee the condition, value, or authenticity of any item. Please check items carefully before you buy or trade.</p>
+    <h2>Vendor tables</h2>
+    <ul>
+      <li>Tables are confirmed once your application is approved and payment is received.</li>
+      <li>Table fees are listed on our website and may change between shows. Discounts may apply for 5 or more tables.</li>
+      <li>Vendors must follow the setup and teardown times we provide, and keep their area tidy.</li>
+      <li>Counterfeit, fake, or misrepresented items are strictly prohibited. Items must be described honestly, including condition and any alterations.</li>
+      <li>Vendors are responsible for their own sales, payments, permits, and taxes.</li>
+      <li>Vendors are responsible for their own inventory, displays, and equipment, and for any damage they cause to the venue.</li>
+      <li>Vendors may not share or resell their table without VWCC's approval.</li>
+      <li>VWCC may remove a vendor who breaks these terms, without a refund.</li>
+      <li>Refunds are covered by our <a href="#refund-policy">Refund Policy</a>.</li>
+    </ul>
+    <h2>Giveaways</h2>
+    <p>Giveaways are free to enter. Unless we say otherwise at the show, winners must be present to claim prizes. Prizes cannot be exchanged for cash. VWCC may change or cancel a giveaway at any time.</p>
+    <h2>Photos and video</h2>
+    <p>By attending, you agree that VWCC may photograph or film the event and use those images for promotion. See our <a href="#privacy-policy">Privacy Policy</a> if you'd like a photo of you removed.</p>
+    <h2>Changes to a show</h2>
+    <p>Dates, times, venues, and vendor lists may change. We'll post updates on our website and social media.</p>
+    <h2>Limitation of liability</h2>
+    <p>To the extent permitted by law, VWCC is not liable for any injury, loss, or damage arising from attending a show or using this website, except where caused by our own negligence.</p>
+    <h2>Website content</h2>
+    <p>The VWCC name, logo, and content on this site belong to VWCC and may not be used without permission. Brand names such as Pokémon, One Piece, Disney Lorcana, Yu-Gi-Oh!, Magic: The Gathering, Topps, Upper Deck, and Funko belong to their respective owners. VWCC is not affiliated with or endorsed by them.</p>
+    <h2>Governing law</h2>
+    <p>These terms are governed by the laws of British Columbia and the federal laws of Canada that apply there.</p>
+    <h2>Contact</h2>
+    <p>Questions about these terms? Email <a href="mailto:vancouverwcc@gmail.com">vancouverwcc@gmail.com</a>.</p>
+    <p class="updated">Last updated: October 8, 2026</p>
+  </div></div></section>
+</main>
+
+<main data-page="accessibility" hidden>
+  <section class="page-head" style="padding-top:40px"><div class="wrap"><a class="crumb" href="#home">← Back to home</a><h1>Accessibility Statement</h1></div></section>
+  <section style="padding-top:40px"><div class="wrap"><div class="doc">
+    <p>Vancouver Westside Collectibles Convention ("VWCC") wants everyone to be able to enjoy our shows and our website, including people with disabilities.</p>
+    <h2>Our website</h2>
+    <p>We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.1 at Level AA. This website:</p>
+    <ul>
+      <li>Works with keyboard navigation and screen readers</li>
+      <li>Uses clear headings, readable text sizes, and strong colour contrast</li>
+      <li>Includes text descriptions for meaningful images</li>
+      <li>Reduces motion for visitors who have turned on "reduce motion" on their device</li>
+      <li>Works on phones, tablets, and computers</li>
+    </ul>
+    <h2>At our shows</h2>
+    <p>Accessibility features such as entrances, washrooms, and parking depend on each venue. If you have questions or need help planning your visit, please contact us before the show and we'll do our best to help. Service animals are welcome.</p>
+    <h2>Known limitations</h2>
+    <p>Some content, such as event photos and social media posts from other platforms, may not be fully accessible. We are working to improve this.</p>
+    <h2>Feedback</h2>
+    <p>If you have trouble using any part of our website or have suggestions, please email <a href="mailto:vancouverwcc@gmail.com">vancouverwcc@gmail.com</a>. We'll respond as soon as we can, and we'll try to provide the information you need in another format.</p>
+    <p class="updated">Last updated: October 8, 2026</p>
+  </div></div></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <img src="https://static.wixstatic.com/media/c989fb_3b2de3d2d3374492adef2e3b30119b4d~mv2.png" alt="VWCC">
+      <div class="foot-tag">Vancouver's premier free admission card show.</div>
+      <div>Built by collectors. Powered by the community.</div>
+      <div style="margin-top:10px"><a href="mailto:vancouverwcc@gmail.com" style="color:var(--grey)">vancouverwcc@gmail.com</a></div>
+    </div>
+    <div class="foot-links">
+      <a href="#home">Home</a><a href="#events">Events</a><a href="#vendors">Vendors</a><a href="#contact">Contact</a><a href="https://www.instagram.com/vancouverwestsidecardshow/" target="_blank" rel="noopener">Instagram</a>
+      <a href="#refund-policy">Refund Policy</a><a href="#privacy-policy">Privacy Policy</a><a href="#terms">Terms &amp; Conditions</a><a href="#accessibility">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-label="Photo viewer">
+  <div class="lb-top"><span id="lbCount"></span><button type="button" id="lbClose">Close</button></div>
+  <img id="lbImg" alt="">
+  <div class="lb-bot"><button type="button" id="lbPrev">← Previous</button><button type="button" id="lbNext">Next →</button></div>
+</div>
+
+<div class="fm" id="fm" hidden role="dialog" aria-modal="true" aria-labelledby="fmTitle">
+  <div class="fm-card">
+    <div class="fm-head">
+      <h2 id="fmTitle">Book a table</h2>
+      <button type="button" class="fm-x" id="fmClose" aria-label="Close form">✕</button>
+    </div>
+    <div id="fmClosed" hidden>
+      <p class="fm-note" style="font-size:18px;color:var(--white)">Vendor applications for <b>Sunday, December 6</b> aren't open yet.</p>
+      <p class="fm-note">We'll announce on Instagram as soon as they're released. Tables are $115 each, with discounts on 5 or more.</p>
+      <a class="btn gold" href="https://www.instagram.com/vancouverwestsidecardshow/" target="_blank" rel="noopener" style="justify-content:center;width:100%">Follow @vancouverwestsidecardshow</a>
+    </div>
+    <div id="fmBody">
+      <p class="fm-note">Sunday, Dec 6 · Aria Convention Centre, Surrey. $115 per table, with discounts on 5 or more.</p>
+      <form id="vendorForm" novalidate>
+        <div class="fld"><label for="f-first">First name</label><input id="f-first" name="first" autocomplete="given-name" required></div>
+        <div class="fld"><label for="f-last">Last name</label><input id="f-last" name="last" autocomplete="family-name" required></div>
+        <div class="fld full"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="fld full"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        <div class="fld"><label for="f-tables">How many tables?</label><input id="f-tables" name="tables" type="number" min="1" max="50" inputmode="numeric" required></div>
+        <div class="fld"><label for="f-vendor">Vendor name</label><input id="f-vendor" name="vendor" autocomplete="organization" required></div>
+        <div class="est" id="est" hidden><span>Estimate before any 5+ discount</span><b id="estVal">$0</b></div>
+        <div class="fld full"><label for="f-ig">Instagram / social media @</label><input id="f-ig" name="instagram" placeholder="@yourshop, or N/A" required><span class="hint">If you don't have one, put N/A.</span></div>
+        <fieldset class="fld full"><legend>Would you like a vendor spotlight?</legend>
+          <div class="radios"><label><input type="radio" name="spotlight" id="f-spot-yes" value="Yes"> Yes</label><label><input type="radio" name="spotlight" id="f-spot-no" value="No"> No</label></div>
+          <span class="hint">Selecting Yes doesn't guarantee one.</span>
+        </fieldset>
+        <div class="fld full"><label for="f-msg">Anything else we should know?</label><textarea id="f-msg" name="message"></textarea></div>
+        <button class="btn gold" type="submit">Submit application <span class="arrow">→</span></button>
+      </form>
+    </div>
+    <div class="fm-done" id="fmDone" hidden>
+      <div class="tick">✓</div>
+      <h2 style="font-size:32px;margin:0">Thanks for applying</h2>
+      <p>We'll be in touch about your table for December 6.</p>
+            <button type="button" class="btn gold" id="fmDoneClose" style="cursor:pointer;font-family:var(--body)">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  // countdown to Dec 6 2026, 11:00 Pacific (19:00 UTC)
+  var target = Date.UTC(2026, 11, 6, 19);
+  function tick() {
+    var s = Math.max(0, Math.floor((target - Date.now()) / 1000));
+    document.getElementById('cd-d').textContent = Math.floor(s / 86400);
+    document.getElementById('cd-h').textContent = String(Math.floor(s / 3600) % 24).padStart(2, '0');
+    document.getElementById('cd-m').textContent = String(Math.floor(s / 60) % 60).padStart(2, '0');
+  }
+  tick(); setInterval(tick, 15000);
+
+  document.getElementById('calBtn').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' +
+    encodeURIComponent('VWCC Card Show') + '&dates=20261206T190000Z/20261207T020000Z&location=' +
+    encodeURIComponent('Aria Convention Centre, 12350 Pattullo Pl, Surrey, BC') +
+    '&details=' + encodeURIComponent('170+ vendors. Free entry. vwcc.ca');
+
+  // gentle lift-in on scroll; content is visible without it
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!still && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove('pre'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      if (el.getBoundingClientRect().top > innerHeight) { el.classList.add('pre'); io.observe(el); }
+    });
+  }
+
+
+  // pages
+  var pages = Array.prototype.slice.call(document.querySelectorAll('main[data-page]'));
+  var names = pages.map(function (p) { return p.dataset.page; });
+  var menu = document.getElementById('menu'), menuBtn = document.getElementById('menuBtn');
+  menuBtn.addEventListener('click', function () { var o = menu.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', o); });
+  function route() {
+    var h = (location.hash || '#home').slice(1);
+    if (h === 'apply') return;
+    var page = names.indexOf(h) >= 0 ? h : 'home';
+    pages.forEach(function (p) { p.hidden = p.dataset.page !== page; });
+    document.querySelectorAll('[data-nav]').forEach(function (a) {
+      var on = a.dataset.nav === page || (page === 'home' && a.dataset.nav === h);
+      if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    });
+    menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false');
+    var target = page === 'home' && h !== 'home' ? document.getElementById(h) : null;
+    if (target) target.scrollIntoView({ behavior: still ? 'auto' : 'smooth' }); else window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', route);
+  route();
+  document.getElementById('calBtn2').href = document.getElementById('calBtn').href;
+
+  var cf = document.getElementById('contactForm');
+  cf.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!cf.checkValidity()) { cf.querySelector(':invalid').focus(); cf.reportValidity(); return; }
+    var name = (document.getElementById('c-first').value + ' ' + document.getElementById('c-last').value).trim();
+    var bodyText = document.getElementById('c-msg').value + '\n\n' + name + '\n' + document.getElementById('c-email').value;
+    window.location.href = 'mailto:vancouverwcc@gmail.com?subject=' + encodeURIComponent('Website message from ' + name) + '&body=' + encodeURIComponent(bodyText);
+    document.getElementById('contactSent').hidden = false;
+  });
+
+  // gallery strip arrows
+  var strip = document.getElementById('strip');
+  function step(dir) { strip.scrollBy({ left: dir * strip.clientWidth * 0.8, behavior: still ? 'auto' : 'smooth' }); }
+  document.getElementById('gPrev').addEventListener('click', function () { step(-1); });
+  document.getElementById('gNext').addEventListener('click', function () { step(1); });
+
+  // lightbox
+  var imgs = Array.prototype.slice.call(strip.querySelectorAll('img'));
+  var lb = document.getElementById('lb'), big = document.getElementById('lbImg'), cnt = document.getElementById('lbCount'), cur = 0;
+  function show(i) { cur = (i + imgs.length) % imgs.length; big.src = imgs[cur].src; big.alt = imgs[cur].alt; cnt.textContent = (cur + 1) + ' of ' + imgs.length; }
+  function open(i) { show(i); lb.hidden = false; document.body.style.overflow = 'hidden'; document.getElementById('lbClose').focus(); }
+  function close() { lb.hidden = true; document.body.style.overflow = ''; }
+  imgs.forEach(function (im, i) { im.parentNode.addEventListener('click', function () { open(i); }); });
+  document.getElementById('lbClose').addEventListener('click', close);
+  document.getElementById('lbPrev').addEventListener('click', function () { show(cur - 1); });
+  document.getElementById('lbNext').addEventListener('click', function () { show(cur + 1); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
+  var sx = null;
+  lb.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+  });
+
+  // vendor application form
+  var fm = document.getElementById('fm'), form = document.getElementById('vendorForm');
+  var lastFocus = null;
+  // Vendor applications switch: change false to true when applications open.
+  var APPLICATIONS_OPEN = false;
+  document.querySelectorAll('[data-closed]').forEach(function (el) {
+    var label = APPLICATIONS_OPEN ? el.dataset.open : el.dataset.closed;
+    if (el.classList.contains('btn') && !APPLICATIONS_OPEN) el.classList.add('is-soon');
+    el.textContent = label;
+  });
+  document.querySelectorAll('[data-closed-only]').forEach(function (el) { el.hidden = APPLICATIONS_OPEN; });
+  document.getElementById('fmTitle').textContent = APPLICATIONS_OPEN ? 'Book a table' : 'Coming soon';
+  document.getElementById('fmClosed').hidden = APPLICATIONS_OPEN;
+  document.getElementById('fmBody').hidden = !APPLICATIONS_OPEN;
+  function openForm(e) { if (e) e.preventDefault(); lastFocus = document.activeElement; fm.hidden = false; document.body.style.overflow = 'hidden'; (APPLICATIONS_OPEN ? document.getElementById('f-first') : document.getElementById('fmClose')).focus(); }
+  function closeForm() { fm.hidden = true; document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+  document.querySelectorAll('a[href="#apply"]').forEach(function (a) { a.addEventListener('click', openForm); });
+  document.getElementById('fmClose').addEventListener('click', closeForm);
+  document.getElementById('fmDoneClose').addEventListener('click', closeForm);
+  fm.addEventListener('click', function (e) { if (e.target === fm) closeForm(); });
+  document.addEventListener('keydown', function (e) { if (!fm.hidden && e.key === 'Escape') closeForm(); });
+  var tables = document.getElementById('f-tables'), est = document.getElementById('est');
+  tables.addEventListener('input', function () {
+    var n = parseInt(tables.value, 10);
+    est.hidden = !(n > 0);
+    if (n > 0) document.getElementById('estVal').textContent = '$' + (n * 115).toLocaleString();
+  });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      var bad = form.querySelector(':invalid'); bad.focus(); form.reportValidity(); return;
+    }
+    document.getElementById('fmBody').hidden = true;
+    document.getElementById('fmDone').hidden = false;
+  });
+})();
+</script>
+
+</body>
+</html>
