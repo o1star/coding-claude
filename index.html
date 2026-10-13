@@ -124,10 +124,10 @@
   <section class="section atelier" id="atelier">
     <div class="sec-head">
       <div>
-        <div class="eyebrow u-label reveal">Interactive — 360°</div>
+        <div class="eyebrow u-label reveal">Interactive — Live Cloth</div>
         <h2 class="reveal d1">The <em>Atelier</em></h2>
       </div>
-      <div class="sec-index reveal d2">Drag to rotate</div>
+      <div class="sec-index reveal d2">Grab the fabric</div>
     </div>
     <div class="atelier-wrap reveal">
       <div class="atelier-stage" id="atelierStage">
@@ -137,7 +137,7 @@
           <div><img src="assets/mark.png" alt=""><span class="u-label">Summoning the relic…</span></div>
         </div>
         <div class="atelier-fallback"><img src="assets/mark.png" alt="Ascension"></div>
-        <div class="atelier-hint u-label" id="atelierHint">✦ Drag to rotate · Flip for the back</div>
+        <div class="atelier-hint u-label" id="atelierHint">✦ Grab the fabric &amp; pull</div>
       </div>
       <div class="atelier-panel">
         <h3 id="atelierName">The Trinity Tee</h3>
@@ -148,7 +148,9 @@
           <div class="opt-row" id="atelierSwitch"></div>
         </div>
         <div class="atelier-actions">
-          <button class="btn" id="atelierSpin" data-cursor="forge">Flip · Front / Back</button>
+          <button class="btn" id="atelierSpin" data-cursor="forge">Flip</button>
+          <button class="btn" id="atelierGust" data-cursor="forge">Gust</button>
+          <button class="btn" id="atelierReset" data-cursor="forge">Reset</button>
           <button class="btn solid" id="atelierAdd" data-cursor="add">View &amp; Add <span class="arr">→</span></button>
         </div>
       </div>
@@ -332,6 +334,6 @@
 <div class="ascend-flash" id="ascendFlash"><img src="assets/mark.png" alt="" /></div>
 
 <script src="js/main.js"></script>
-<script type="module" src="js/atelier.js"></script>
+<script type="module" src="js/cloth.js"></script>
 </body>
 </html>
