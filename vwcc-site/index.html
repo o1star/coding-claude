@@ -251,6 +251,25 @@ footer .wrap { align-items: flex-start; }
 .btn.is-soon { background: var(--card-2); color: var(--white); }
 .soon-note { color: var(--grey); margin: 16px 0 0; max-width: 46ch; font-size: 15px; }
 .soon-note a { color: var(--gold-text); font-weight: 700; }
+.waiver { max-height: 320px; overflow-y: auto; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; font-size: 14.5px; line-height: 1.6; color: #3a3a37; -webkit-overflow-scrolling: touch; }
+.waiver h3 { font: 800 19px/1.2 var(--display); letter-spacing: -.02em; color: var(--white); margin: 0 0 10px; }
+.waiver p { margin: 0 0 12px; }
+.waiver .wv-intro { background: #fff4d6; border-left: 3px solid var(--gold); padding: 10px 12px; border-radius: 6px; color: #5c4400; }
+.waiver a { color: var(--gold-text); }
+.wv-head { grid-column: 1 / -1; font: 800 20px/1.2 var(--display); letter-spacing: -.02em; margin: 10px 0 -4px; padding-top: 14px; border-top: 1px solid var(--line); }
+.agree { display: flex; gap: 12px; align-items: flex-start; font-weight: 600; font-size: 15px; line-height: 1.45; cursor: pointer; }
+.agree input { width: 22px; height: 22px; flex: none; margin-top: 1px; accent-color: var(--gold); }
+.sig input { font-family: "Brush Script MT", "Segoe Script", cursive, var(--body); font-size: 22px; }
+.lw-wrap { max-width: 760px; }
+.lw-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: clamp(22px, 4vw, 36px); }
+.lw-card form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+.lw-card .btn { grid-column: 1 / -1; justify-content: center; border: 0; cursor: pointer; font-family: var(--body); }
+.lw-done { text-align: center; padding: 18px 0 6px; }
+.lw-done .tick { width: 64px; height: 64px; border-radius: 50%; background: var(--gold); color: var(--gold-ink); display: grid; place-items: center; font-size: 30px; font-weight: 800; margin: 0 auto 16px; }
+.lw-done p { color: var(--grey); max-width: 44ch; margin: 8px auto 0; }
+.ig-note { background: var(--card-2); border-radius: 12px; padding: 14px 16px; font-size: 15px; margin-top: 8px; }
+@media (max-width: 520px) { .lw-card form { grid-template-columns: minmax(0, 1fr); } }
+.form-err { grid-column: 1 / -1; background: #fdecec; border: 1px solid #f5b5b5; color: #8a1f1f; border-radius: 12px; padding: 12px 14px; font-weight: 600; font-size: 15px; }
 .btn, .cta, .pill-nav a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 @media (hover: none) { .cat:hover img, .strip button:hover img { transform: none; } .row:hover { padding-left: 0; } .btn:hover, .cta:hover { transform: none; } }
 .strip { -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
@@ -386,6 +405,7 @@ footer .wrap { align-items: flex-start; }
         <li>Vendor spotlights available on request</li>
         <li>Quick application, about two minutes</li>
       </ul>
+      <div class="ig-note" style="margin:0 0 22px">Booked your table through Instagram? Every vendor must sign the <a href="#liability-form" style="color:var(--gold-text);font-weight:700">vendor liability form</a> before the show.</div>
       <a class="btn gold" href="#apply" data-open="Apply for a table →" data-closed="Applications opening soon">Apply for a table <span class="arrow">→</span></a>
       <p class="soon-note" data-closed-only>Vendor applications for December 6 haven't been released yet. Follow <a href="https://www.instagram.com/vancouverwestsidecardshow/" target="_blank" rel="noopener">@vancouverwestsidecardshow</a> on Instagram to hear the moment they open.</p>
     </div>
@@ -446,7 +466,7 @@ footer .wrap { align-items: flex-start; }
           <div class="fld full"><label for="c-email">Email</label><input id="c-email" type="email" autocomplete="email" required></div>
           <div class="fld full"><label for="c-msg">Message</label><textarea id="c-msg" required></textarea></div>
           <button class="btn gold" type="submit">Send message <span class="arrow">→</span></button>
-          <div class="sent" id="contactSent" hidden>Your email app should open with your message ready. Just hit send. If it didn't open, email us at <a href="mailto:vancouverwcc@gmail.com">vancouverwcc@gmail.com</a>.</div>
+          <div class="sent" id="contactSent" hidden>Thanks! Your message has been sent. We'll get back to you soon.</div>
         </form>
       </div>
       <div class="side">
@@ -560,7 +580,7 @@ footer .wrap { align-items: flex-start; }
       <li>Vendors are responsible for their own inventory, displays, and equipment, and for any damage they cause to the venue.</li>
       <li>Vendors may not share or resell their table without VWCC's approval.</li>
       <li>VWCC may remove a vendor who breaks these terms, without a refund.</li>
-      <li>Refunds are covered by our <a href="#refund-policy">Refund Policy</a>.</li>
+      <li>Refunds are covered by our <a href="#liability-form">Vendor Liability Form</a><a href="#refund-policy">Refund Policy</a>.</li>
     </ul>
     <h2>Giveaways</h2>
     <p>Giveaways are free to enter. Unless we say otherwise at the show, winners must be present to claim prizes. Prizes cannot be exchanged for cash. VWCC may change or cancel a giveaway at any time.</p>
@@ -578,6 +598,54 @@ footer .wrap { align-items: flex-start; }
     <p>Questions about these terms? Email <a href="mailto:vancouverwcc@gmail.com">vancouverwcc@gmail.com</a>.</p>
     <p class="updated">Last updated: October 8, 2026</p>
   </div></div></section>
+</main>
+
+<main data-page="liability-form" hidden>
+  <section class="page-head" style="padding-top:40px">
+    <div class="wrap">
+      <div class="kicker">Vendors</div>
+      <h1>Vendor liability form.</h1>
+      <p>Booked your table through Instagram or direct message? Please read and sign this agreement before the show. If you applied through our website form, you've already signed it.</p>
+    </div>
+  </section>
+  <section style="padding-top:40px">
+    <div class="wrap lw-wrap">
+      <div class="lw-card">
+        <div id="lwBody">
+          <div class="waiver" style="max-height:420px" tabindex="0" aria-label="Vendor agreement text"><h3>Vendor Agreement, Release of Liability and Indemnity</h3>
+<p class="wv-intro">Please read this agreement carefully. It affects your legal rights, including your right to sue. By signing, you agree to its terms on behalf of yourself and the business you represent.</p>
+<p><b>Parties.</b> This agreement is between the vendor named below, including the vendor's business, owners, employees, helpers and anyone attending under the vendor's table (together, the "Vendor"), and the Vancouver Westside Collectibles Convention, its organizers, owners, staff, volunteers and agents (together, "VWCC"). It applies to every VWCC event the Vendor attends, including setup, the event itself and teardown (the "Event"), and to the venue and its owners and operators (the "Venue").</p>
+<p><b>1. Vendor's goods are at the Vendor's own risk.</b> The Vendor is solely responsible for the security of all cards, merchandise, cash, display cases, equipment and other personal property the Vendor brings to the Event. VWCC and the Venue are not liable for any loss, theft, damage or destruction of the Vendor's property from any cause, at any time, including before, during or after the Event, whether or not the property was left unattended.</p>
+<p><b>2. Responsibility for damage.</b> The Vendor is fully responsible for, and agrees to pay for, any damage the Vendor causes to tables, chairs, linens, equipment, walls, floors, fixtures or any other property that does not belong to the Vendor, including property of VWCC, the Venue, other vendors and attendees. The Vendor agrees to pay the reasonable cost of repair or replacement within 30 days of receiving an invoice.</p>
+<p><b>3. Assumption of risk.</b> The Vendor understands that attending a busy public event involves risks, including crowds, carrying heavy items, trips and falls, and theft. The Vendor freely accepts these risks.</p>
+<p><b>4. Release of liability.</b> To the fullest extent permitted by law, the Vendor waives, releases and discharges VWCC and the Venue from all claims, demands, losses and liability of any kind, including for property loss, theft, damage, personal injury or financial loss, arising from or connected to the Vendor's participation in the Event, <b>including claims caused by the negligence of VWCC</b>.</p>
+<p><b>5. Indemnity.</b> The Vendor agrees to indemnify and hold harmless VWCC and the Venue from any claim, cost or expense (including reasonable legal fees) brought by any person and arising from the Vendor's actions, products, sales, employees or helpers, or from the Vendor's breach of this agreement.</p>
+<p><b>6. Sales, conduct and compliance.</b> All sales and trades are solely between the Vendor and the buyer. The Vendor will describe items honestly, will not sell counterfeit, stolen or misrepresented goods, and is responsible for its own taxes, permits and payments. The Vendor will follow the Venue's rules and VWCC's <a href="#terms">Terms &amp; Conditions</a>. VWCC may remove a Vendor who breaks these rules, without refund.</p>
+<p><b>7. Insurance.</b> VWCC does not insure the Vendor's goods. The Vendor is encouraged to carry its own insurance for its inventory and liability.</p>
+<p><b>8. Electronic signature.</b> The Vendor agrees that typing their full legal name below and checking the box is their electronic signature, and has the same legal effect as a handwritten signature under British Columbia's <i>Electronic Transactions Act</i>.</p>
+<p><b>9. General.</b> The person signing confirms they are at least 19 years old and authorized to sign for the Vendor. This agreement is governed by the laws of British Columbia. If any part is found unenforceable, the rest remains in full effect, and that part will be enforced to the greatest extent permitted. This agreement is binding on the Vendor's heirs, successors and assigns.</p>
+<p><b>I have read and understood this agreement, I am giving up legal rights, and I sign it voluntarily.</b></p>
+</div>
+          <form id="lwForm" novalidate>
+            <div class="fld"><label for="lw-name">Full legal name</label><input id="lw-name" autocomplete="name" required></div>
+            <div class="fld"><label for="lw-vendor">Vendor or business name</label><input id="lw-vendor" autocomplete="organization" required></div>
+            <div class="fld"><label for="lw-email">Email</label><input id="lw-email" type="email" autocomplete="email" required></div>
+            <div class="fld"><label for="lw-phone">Phone</label><input id="lw-phone" type="tel" autocomplete="tel" required></div>
+            <div class="fld full"><label for="lw-ig">Instagram handle you booked with</label><input id="lw-ig" placeholder="@yourshop"></div>
+            <label class="agree" for="lw-agree" style="grid-column:1/-1"><input type="checkbox" id="lw-agree" required> I have read and agree to the Vendor Agreement, Release of Liability and Indemnity, and I am at least 19 years old.</label>
+            <div class="fld sig"><label for="lw-sign">Type your full legal name to sign</label><input id="lw-sign" required></div>
+            <div class="fld"><label for="lw-date">Date</label><input id="lw-date" readonly></div>
+            <button class="btn gold" type="submit">Sign agreement <span class="arrow">→</span></button>
+          </form>
+        </div>
+        <div class="lw-done" id="lwDone" hidden>
+          <div class="tick">✓</div>
+          <h2 style="font-size:32px;margin:0">Agreement signed</h2>
+          <p id="lwDoneText">Thanks. Your signed agreement has been recorded.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <main data-page="accessibility" hidden>
@@ -651,7 +719,25 @@ footer .wrap { align-items: flex-start; }
           <span class="hint">Selecting Yes doesn't guarantee one.</span>
         </fieldset>
         <div class="fld full"><label for="f-msg">Anything else we should know?</label><textarea id="f-msg" name="message"></textarea></div>
-        <button class="btn gold" type="submit">Submit application <span class="arrow">→</span></button>
+        <div class="wv-head">Vendor agreement</div>
+        <div class="fld full"><div class="waiver" tabindex="0" aria-label="Vendor agreement text"><h3>Vendor Agreement, Release of Liability and Indemnity</h3>
+<p class="wv-intro">Please read this agreement carefully. It affects your legal rights, including your right to sue. By signing, you agree to its terms on behalf of yourself and the business you represent.</p>
+<p><b>Parties.</b> This agreement is between the vendor named below, including the vendor's business, owners, employees, helpers and anyone attending under the vendor's table (together, the "Vendor"), and the Vancouver Westside Collectibles Convention, its organizers, owners, staff, volunteers and agents (together, "VWCC"). It applies to every VWCC event the Vendor attends, including setup, the event itself and teardown (the "Event"), and to the venue and its owners and operators (the "Venue").</p>
+<p><b>1. Vendor's goods are at the Vendor's own risk.</b> The Vendor is solely responsible for the security of all cards, merchandise, cash, display cases, equipment and other personal property the Vendor brings to the Event. VWCC and the Venue are not liable for any loss, theft, damage or destruction of the Vendor's property from any cause, at any time, including before, during or after the Event, whether or not the property was left unattended.</p>
+<p><b>2. Responsibility for damage.</b> The Vendor is fully responsible for, and agrees to pay for, any damage the Vendor causes to tables, chairs, linens, equipment, walls, floors, fixtures or any other property that does not belong to the Vendor, including property of VWCC, the Venue, other vendors and attendees. The Vendor agrees to pay the reasonable cost of repair or replacement within 30 days of receiving an invoice.</p>
+<p><b>3. Assumption of risk.</b> The Vendor understands that attending a busy public event involves risks, including crowds, carrying heavy items, trips and falls, and theft. The Vendor freely accepts these risks.</p>
+<p><b>4. Release of liability.</b> To the fullest extent permitted by law, the Vendor waives, releases and discharges VWCC and the Venue from all claims, demands, losses and liability of any kind, including for property loss, theft, damage, personal injury or financial loss, arising from or connected to the Vendor's participation in the Event, <b>including claims caused by the negligence of VWCC</b>.</p>
+<p><b>5. Indemnity.</b> The Vendor agrees to indemnify and hold harmless VWCC and the Venue from any claim, cost or expense (including reasonable legal fees) brought by any person and arising from the Vendor's actions, products, sales, employees or helpers, or from the Vendor's breach of this agreement.</p>
+<p><b>6. Sales, conduct and compliance.</b> All sales and trades are solely between the Vendor and the buyer. The Vendor will describe items honestly, will not sell counterfeit, stolen or misrepresented goods, and is responsible for its own taxes, permits and payments. The Vendor will follow the Venue's rules and VWCC's <a href="#terms">Terms &amp; Conditions</a>. VWCC may remove a Vendor who breaks these rules, without refund.</p>
+<p><b>7. Insurance.</b> VWCC does not insure the Vendor's goods. The Vendor is encouraged to carry its own insurance for its inventory and liability.</p>
+<p><b>8. Electronic signature.</b> The Vendor agrees that typing their full legal name below and checking the box is their electronic signature, and has the same legal effect as a handwritten signature under British Columbia's <i>Electronic Transactions Act</i>.</p>
+<p><b>9. General.</b> The person signing confirms they are at least 19 years old and authorized to sign for the Vendor. This agreement is governed by the laws of British Columbia. If any part is found unenforceable, the rest remains in full effect, and that part will be enforced to the greatest extent permitted. This agreement is binding on the Vendor's heirs, successors and assigns.</p>
+<p><b>I have read and understood this agreement, I am giving up legal rights, and I sign it voluntarily.</b></p>
+</div></div>
+        <label class="agree full fld" for="f-agree" style="grid-column:1/-1"><input type="checkbox" id="f-agree" name="agree" required> I have read and agree to the Vendor Agreement, Release of Liability and Indemnity.</label>
+        <div class="fld sig"><label for="f-sign">Type your full legal name to sign</label><input id="f-sign" name="signature" autocomplete="name" required></div>
+        <div class="fld"><label for="f-sdate">Date</label><input id="f-sdate" name="signed_date" readonly></div>
+        <button class="btn gold" type="submit">Sign and submit application <span class="arrow">→</span></button>
       </form>
     </div>
     <div class="fm-done" id="fmDone" hidden>
@@ -714,14 +800,98 @@ footer .wrap { align-items: flex-start; }
   route();
   document.getElementById('calBtn2').href = document.getElementById('calBtn').href;
 
+  // ---- Wix Forms: every submission is saved in the Wix dashboard and emailed to the owner ----
+  var WIX = {
+    clientId: '138e9b04-7a6a-4157-8144-e55dc8bd203e',
+    liability: '91c841c1-03c9-4fab-be49-53f9269185cd',
+    application: 'ee3f354f-c664-40ec-afd9-e85fe1b61d24',
+    contact: '51736552-a9c5-44dd-98cd-11157c3a7241'
+  };
+  var AGREEMENT_VERSION = 'VWCC Vendor Agreement, Release of Liability and Indemnity — version 1 (October 23, 2026)';
+  var TOKEN_KEY = 'wix_visitor_' + WIX.clientId;
+  function readTok() { try { return JSON.parse(localStorage.getItem(TOKEN_KEY)); } catch (e) { return null; } }
+  function saveTok(t) { try { localStorage.setItem(TOKEN_KEY, JSON.stringify(t)); } catch (e) {} }
+  function mint(body) {
+    return fetch('https://www.wixapis.com/oauth2/token', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function (r) { if (!r.ok) throw new Error('token ' + r.status); return r.json(); })
+      .then(function (d) { var t = { access: d.access_token, refresh: d.refresh_token, exp: Date.now() + (d.expires_in - 60) * 1000 }; saveTok(t); return t.access; });
+  }
+  function visitorToken() {
+    var t = readTok();
+    if (t && t.access && t.exp > Date.now()) return Promise.resolve(t.access);
+    if (t && t.refresh) return mint({ clientId: WIX.clientId, grantType: 'refresh_token', refreshToken: t.refresh }).catch(function () { return mint({ clientId: WIX.clientId, grantType: 'anonymous' }); });
+    return mint({ clientId: WIX.clientId, grantType: 'anonymous' });
+  }
+  function submitForm(formId, values) {
+    return visitorToken().then(function (tok) {
+      return fetch('https://www.wixapis.com/form-submission-service/v4/submissions', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: tok },
+        body: JSON.stringify({ submission: { formId: formId, submissions: values } })
+      });
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (d) {
+        var st = d.submission && d.submission.status;
+        if (r.ok && (st === 'CONFIRMED' || st === 'PENDING' || st === 'PAYMENT_WAITING')) return d.submission;
+        throw new Error('Submit failed (' + r.status + ')');
+      });
+    });
+  }
+  function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+  function phone(id) { return val(id).replace(/[^0-9+]/g, ''); }
+  function busy(btn, on, label) { btn.disabled = on; if (on) { btn.dataset.label = btn.innerHTML; btn.textContent = label; } else if (btn.dataset.label) btn.innerHTML = btn.dataset.label; }
+  function showErr(form, msg) {
+    var el = form.querySelector('.form-err');
+    if (!el) { el = document.createElement('div'); el.className = 'form-err'; el.setAttribute('role', 'alert'); form.querySelector('button[type=submit]').before(el); }
+    el.textContent = msg; el.hidden = !msg;
+  }
+  var NET_ERR = "Sorry, that didn't go through. Please check your connection and try again, or email us at vancouverwcc@gmail.com.";
+  function liabilityValues(o) {
+    return {
+      full_legal_name_2awerv: o.name,
+      vendor_or_business_name_ej71u8: o.vendor,
+      email_k0k724: o.email,
+      phone_vqd4fl: o.phone,
+      instagram_handle_you_booked_with_yvr234: o.ig,
+      i_have_read_and_agree_to_the_vendor_agre_od8i0s: true,
+      signature_typed_full_legal_name_5hfuoy: o.signature,
+      date_signed_7uroog: today + ' ' + new Date().toLocaleTimeString('en-CA', { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }),
+      agreement_version_h57h2l: AGREEMENT_VERSION
+    };
+  }
+
+  // signing dates + validation
+  var today = new Date().toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' });
+  ['f-sdate', 'lw-date'].forEach(function (id) { var el = document.getElementById(id); if (el) el.value = today; });
+  function sameName(a, b) { return a.trim().replace(/\s+/g, ' ').toLowerCase() === b.trim().replace(/\s+/g, ' ').toLowerCase(); }
+  var lw = document.getElementById('lwForm');
+  lw.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var sign = document.getElementById('lw-sign');
+    sign.setCustomValidity(sign.value && !sameName(sign.value, document.getElementById('lw-name').value) ? 'Your signature must match your full legal name above.' : '');
+    if (!lw.checkValidity()) { lw.querySelector(':invalid').focus(); lw.reportValidity(); return; }
+    var btn = lw.querySelector('button[type=submit]'); showErr(lw, ''); busy(btn, true, 'Signing…');
+    submitForm(WIX.liability, liabilityValues({ name: val('lw-name'), vendor: val('lw-vendor'), email: val('lw-email'), phone: phone('lw-phone'), ig: val('lw-ig'), signature: val('lw-sign') }))
+      .then(function () {
+        document.getElementById('lwDoneText').textContent = 'Thanks, ' + val('lw-name') + '. Your agreement for ' + val('lw-vendor') + ' was signed on ' + today + ' and has been recorded.';
+        document.getElementById('lwBody').hidden = true;
+        document.getElementById('lwDone').hidden = false;
+        window.scrollTo(0, 0);
+      })
+      .catch(function () { showErr(lw, NET_ERR); })
+      .then(function () { busy(btn, false); });
+  });
+  document.getElementById('f-sign').addEventListener('input', function () { this.setCustomValidity(''); });
+  document.getElementById('lw-sign').addEventListener('input', function () { this.setCustomValidity(''); });
+
   var cf = document.getElementById('contactForm');
   cf.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!cf.checkValidity()) { cf.querySelector(':invalid').focus(); cf.reportValidity(); return; }
-    var name = (document.getElementById('c-first').value + ' ' + document.getElementById('c-last').value).trim();
-    var bodyText = document.getElementById('c-msg').value + '\n\n' + name + '\n' + document.getElementById('c-email').value;
-    window.location.href = 'mailto:vancouverwcc@gmail.com?subject=' + encodeURIComponent('Website message from ' + name) + '&body=' + encodeURIComponent(bodyText);
-    document.getElementById('contactSent').hidden = false;
+    var btn = cf.querySelector('button[type=submit]'); showErr(cf, ''); busy(btn, true, 'Sending…');
+    submitForm(WIX.contact, { first_name_7dubg3: val('c-first'), last_name_9tulka: val('c-last'), email_0e8g3i: val('c-email'), message_orgg26: val('c-msg') })
+      .then(function () { document.getElementById('contactSent').hidden = false; cf.reset(); })
+      .catch(function () { showErr(cf, NET_ERR); })
+      .then(function () { busy(btn, false); });
   });
 
   // gallery strip arrows
@@ -782,11 +952,29 @@ footer .wrap { align-items: flex-start; }
   });
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    var fs = document.getElementById('f-sign');
+    var full = document.getElementById('f-first').value + ' ' + document.getElementById('f-last').value;
+    fs.setCustomValidity(fs.value && !sameName(fs.value, full) ? 'Your signature must match your first and last name above.' : '');
     if (!form.checkValidity()) {
       var bad = form.querySelector(':invalid'); bad.focus(); form.reportValidity(); return;
     }
-    document.getElementById('fmBody').hidden = true;
-    document.getElementById('fmDone').hidden = false;
+    var btn = form.querySelector('button[type=submit]'); showErr(form, ''); busy(btn, true, 'Submitting…');
+    var spot = form.querySelector('input[name=spotlight]:checked');
+    var app = {
+      first_name_ygrj55: val('f-first'), last_name_4hlvrn: val('f-last'), email_5rvht5: val('f-email'), phone_q2rm4u: phone('f-phone'),
+      vendor_name_dgkk2n: val('f-vendor'), how_many_tables_would_you_like_to_book_f2nfpw: Number(val('f-tables')),
+      vendor_instagram_social_media_kd110m: val('f-ig')
+    };
+    if (spot) app.would_you_like_a_vendor_spotlight_nr1e3k = spot.value;
+    if (val('f-msg')) app.anything_else_we_should_know_u3gbi0 = val('f-msg');
+    submitForm(WIX.liability, liabilityValues({ name: val('f-first') + ' ' + val('f-last'), vendor: val('f-vendor'), email: val('f-email'), phone: phone('f-phone'), ig: val('f-ig'), signature: val('f-sign') }))
+      .then(function () { return submitForm(WIX.application, app); })
+      .then(function () {
+        document.getElementById('fmBody').hidden = true;
+        document.getElementById('fmDone').hidden = false;
+      })
+      .catch(function () { showErr(form, NET_ERR); })
+      .then(function () { busy(btn, false); });
   });
 })();
 </script>
