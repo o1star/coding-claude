@@ -927,7 +927,7 @@ footer .wrap { align-items: flex-start; }
   var fm = document.getElementById('fm'), form = document.getElementById('vendorForm');
   var lastFocus = null;
   // Vendor applications switch: change false to true when applications open.
-  var APPLICATIONS_OPEN = false;
+  var APPLICATIONS_OPEN = true;
   document.querySelectorAll('[data-closed]').forEach(function (el) {
     var label = APPLICATIONS_OPEN ? el.dataset.open : el.dataset.closed;
     if (el.classList.contains('btn') && !APPLICATIONS_OPEN) el.classList.add('is-soon');
