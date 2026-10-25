@@ -832,12 +832,22 @@ footer .wrap { align-items: flex-start; }
       return r.json().catch(function () { return {}; }).then(function (d) {
         var st = d.submission && d.submission.status;
         if (r.ok && (st === 'CONFIRMED' || st === 'PENDING' || st === 'PAYMENT_WAITING')) return d.submission;
-        throw new Error('Submit failed (' + r.status + ')');
+        var err = new Error('Submit failed (' + r.status + ')');
+        err.badPhone = /phone/i.test(JSON.stringify(d));
+        throw err;
       });
     });
   }
   function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
-  function phone(id) { return val(id).replace(/[^0-9+]/g, ''); }
+  // Wix needs an international number (+countrycode); assume Canada/US for 10-digit numbers
+  function phone(id) {
+    var raw = val(id), d = raw.replace(/\D/g, '');
+    if (!d) return '';
+    if (raw.charAt(0) === '+') return '+' + d;
+    if (d.length === 10) return '+1' + d;
+    if (d.length === 11 && d.charAt(0) === '1') return '+' + d;
+    return '+' + d;
+  }
   function busy(btn, on, label) { btn.disabled = on; if (on) { btn.dataset.label = btn.innerHTML; btn.textContent = label; } else if (btn.dataset.label) btn.innerHTML = btn.dataset.label; }
   function showErr(form, msg) {
     var el = form.querySelector('.form-err');
@@ -845,6 +855,8 @@ footer .wrap { align-items: flex-start; }
     el.textContent = msg; el.hidden = !msg;
   }
   var NET_ERR = "Sorry, that didn't go through. Please check your connection and try again, or email us at vancouverwcc@gmail.com.";
+  var PHONE_ERR = "That phone number doesn't look right. Please enter it with the area code, like 604-555-1234 (add + and the country code if it's not a Canadian or US number).";
+  function failMsg(e) { return e && e.badPhone ? PHONE_ERR : NET_ERR; }
   function liabilityValues(o) {
     return {
       full_legal_name_2awerv: o.name,
@@ -877,7 +889,7 @@ footer .wrap { align-items: flex-start; }
         document.getElementById('lwDone').hidden = false;
         window.scrollTo(0, 0);
       })
-      .catch(function () { showErr(lw, NET_ERR); })
+      .catch(function (e) { showErr(lw, failMsg(e)); })
       .then(function () { busy(btn, false); });
   });
   document.getElementById('f-sign').addEventListener('input', function () { this.setCustomValidity(''); });
@@ -973,7 +985,7 @@ footer .wrap { align-items: flex-start; }
         document.getElementById('fmBody').hidden = true;
         document.getElementById('fmDone').hidden = false;
       })
-      .catch(function () { showErr(form, NET_ERR); })
+      .catch(function (e) { showErr(form, failMsg(e)); })
       .then(function () { busy(btn, false); });
   });
 })();
